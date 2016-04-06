@@ -7,10 +7,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="uchat.uchat.LoginActivity">
+    tools:context="uchat.uchat.LoginActivity"
+    android:background="#00FFFF">
 
-    <TextView
+    <ImageView
+        android:id="@+id/logo_login"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp" />
+
+    <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_height="30dp"
+        android:inputType="text"
+        android:ems="10"
+        android:hint="Username"
+        android:id="@+id/username"
+        android:layout_margin="15dp"
+        android:layout_below="@id/logo_login"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:ems="10"
+        android:id="@+id/password"
+        android:layout_margin="15dp"
+        android:layout_below="@id/username"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:textColor="#000000"/>
+
 </RelativeLayout>
