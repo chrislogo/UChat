@@ -1,9 +1,11 @@
 package uchat.uchat;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -23,5 +25,12 @@ public class LoginActivity extends AppCompatActivity {
 
         login_logo.setImageResource(R.mipmap.uchat_logo);
 
+    }
+
+    // change later
+    public void Validate_Cred(View v)
+    {
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
     }
 }
