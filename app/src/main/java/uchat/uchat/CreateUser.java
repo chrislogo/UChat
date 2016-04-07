@@ -62,7 +62,6 @@ public class CreateUser extends AppCompatActivity {
         register_submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
                 request = new StringRequest(Request.Method.POST, insertUrl, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response){
