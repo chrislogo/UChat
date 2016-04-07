@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">UChat</string>
+    <array name="grade_year">
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </array>
 
+
+    <array name="sec_quest">
+        <item>What is your favorite color?</item>
+        <item>What is your mothers maiden name?</item>
+        <item>What is your favorite class?</item>
+        <item>Where was your father born?</item>
+        <item>What was the model of your first car?</item>
+    </array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

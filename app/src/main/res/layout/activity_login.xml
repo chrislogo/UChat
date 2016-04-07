@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register Today!"
-        android:id="@+id/button2"
+        android:id="@+id/reg_button"
         android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="23dp"
@@ -77,8 +77,8 @@
         android:layout_height="wrap_content"
         android:text="Lost Password?"
         android:id="@+id/button3"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:layout_alignBottom="@+id/reg_button"
+        android:layout_toRightOf="@+id/reg_button"
+        android:layout_toEndOf="@+id/reg_button" />
 
 </RelativeLayout>
