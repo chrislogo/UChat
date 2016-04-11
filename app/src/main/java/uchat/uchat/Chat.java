@@ -2,6 +2,7 @@ package uchat.uchat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -29,6 +30,14 @@ public class Chat extends WebViewFragment
         WebView WV = getWebView();
 
        WV.loadUrl("http://73.42.47.33/chat-page.html");
+
+        // disable scroll on touch
+       /* WV.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return (event.getAction() == MotionEvent.ACTION_MOVE);
+            }
+        });*/
 
         // so the app doesn't open a browser
         WV.setWebViewClient(new WebViewClient() {

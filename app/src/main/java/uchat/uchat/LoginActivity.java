@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), CreateUser.class));
+                startActivity(new Intent(getBaseContext(), ChatActivity.class));
             }
         });
 

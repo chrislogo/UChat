@@ -7,6 +7,11 @@
         <item>Senior</item>
     </array>
 
+    <string name="Search">Search</string>
+    <string name="Profile">Profile</string>
+    <string name="Logout">Logout</string>
+    <string name="Send">Send</string>
+
 
     <array name="sec_quest">
         <item>What is your favorite color?</item>
