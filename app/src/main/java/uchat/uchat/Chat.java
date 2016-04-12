@@ -28,8 +28,11 @@ public class Chat extends WebViewFragment
 
         // change the webView according to what is clicked
         WebView WV = getWebView();
+        WV.getSettings().setDomStorageEnabled(true);
+        WV.getSettings().setJavaScriptEnabled(true);
 
-       WV.loadUrl("http://73.42.47.33/chat-page.html");
+
+        WV.loadUrl("http://73.42.47.33/chat-page.html");
 
         // disable scroll on touch
        /* WV.setOnTouchListener(new View.OnTouchListener() {

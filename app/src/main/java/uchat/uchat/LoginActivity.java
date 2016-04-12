@@ -44,14 +44,13 @@ public class LoginActivity extends AppCompatActivity {
         login_password = (EditText) findViewById(R.id.password);
         reg_button = (Button) findViewById(R.id.reg_button);
         log_button = (Button) findViewById(R.id.log_button);
-        login_logo.setImageResource(R.mipmap.uchat_logo);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), ChatActivity.class));
+                startActivity(new Intent(getBaseContext(), CreateUser.class));
             }
         });
 
@@ -67,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                             //check for success JSON object
                             if(jsonObject.names().get(0).equals("success")){
                                 Toast.makeText(getApplicationContext(), "" + jsonObject.getString("success"), Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(getBaseContext(), ChatActivity.class));
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "" + jsonObject.get("error"), Toast.LENGTH_LONG).show();
