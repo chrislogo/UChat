@@ -1,6 +1,7 @@
 package uchat.uchat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ChatActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +35,12 @@ public class ChatActivity extends AppCompatActivity
         setContentView(R.layout.activity_chat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
+
+        String pref_response = shared_pref.getString("username", "");
+
+       //IF WE GET ERRORS, MAKE SURE PREF !NULL
 
         mNavigationDrawerItemTitles = new String[9];
         mNavigationDrawerItemTitles[0] = "Guy 1";

@@ -1,6 +1,8 @@
 package uchat.uchat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static final String pref_string = "LOGIN";
     ImageView login_logo;
     EditText login_username, login_password;
     Button reg_button,log_button;
@@ -44,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         login_password = (EditText) findViewById(R.id.password);
         reg_button = (Button) findViewById(R.id.reg_button);
         log_button = (Button) findViewById(R.id.log_button);
+
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -65,11 +68,21 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             //check for success JSON object
                             if(jsonObject.names().get(0).equals("success")){
-                                Toast.makeText(getApplicationContext(), "" + jsonObject.getString("success"), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Success: " + jsonObject.getString("success"), Toast.LENGTH_LONG).show();
+
+                                //keeps username alive for other activities
+                                SharedPreferences pref = getApplicationContext().getSharedPreferences(pref_string, 0);
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putString("username", login_username.getText().toString());
+                                editor.apply();
+
                                 startActivity(new Intent(getBaseContext(), ChatActivity.class));
                             }
+                            else if(jsonObject.names().get(0).equals("empty")){
+                                Toast.makeText(getApplicationContext(), "Error: "+jsonObject.getString("empty"), Toast.LENGTH_LONG).show();
+                            }
                             else{
-                                Toast.makeText(getApplicationContext(), "" + jsonObject.get("error"), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Error: " + jsonObject.get("error"), Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
