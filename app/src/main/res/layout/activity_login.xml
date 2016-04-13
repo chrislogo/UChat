@@ -12,7 +12,7 @@
 
     <ImageView
         android:id="@+id/logo_login"
-        android:src="@drawable/white_logo"
+        android:src="@drawable/uchatlogo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
