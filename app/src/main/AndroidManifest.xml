@@ -18,10 +18,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".ChatActivity" />
         <activity android:name=".CreateUser" />
         <activity android:name=".Profile" />
-        <activity android:name=".ClassChoice"/>
+        <activity android:name=".ClassChoice" />
+        <activity
+            android:name=".ChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
