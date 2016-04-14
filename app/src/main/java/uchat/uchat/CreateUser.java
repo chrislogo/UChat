@@ -1,9 +1,14 @@
 package uchat.uchat;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatSpinner;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,11 +30,12 @@ import java.util.Map;
 
 public class CreateUser extends AppCompatActivity {
 
-    EditText first_name, last_name, user_email, answer, register_username, register_password, user_major;
-    Spinner question;
-    Button register_submit, cancel_button;
+    TextInputEditText first_name, last_name, user_email, answer, register_username, register_password;
+    AppCompatSpinner question, grad_year, user_major;
+    FloatingActionButton register_submit, cancel_button;
     RequestQueue requestQueue;
     String insertUrl = "http://73.42.47.33/insert_user.php";
+    String selected_question, selected_grad_year, selected_major;
     private StringRequest request;
 
 
@@ -37,20 +43,60 @@ public class CreateUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
+        setTitle("Create Account");
 
-        first_name = (EditText) findViewById(R.id.first_name);
-        last_name = (EditText) findViewById(R.id.last_name);
-        user_email = (EditText) findViewById(R.id.user_email);
-        register_username = (EditText) findViewById(R.id.register_username);
-        register_password = (EditText) findViewById(R.id.register_password);
-        //user_major = (EditText) findViewById(R.id.major);
-        answer = (EditText) findViewById(R.id.answer);
-        question = (Spinner) findViewById(R.id.question);
+        first_name = (TextInputEditText) findViewById(R.id.first_name);
+        last_name = (TextInputEditText) findViewById(R.id.last_name);
+        user_email = (TextInputEditText) findViewById(R.id.user_email);
+        register_username = (TextInputEditText) findViewById(R.id.register_username);
+        register_password = (TextInputEditText) findViewById(R.id.register_password);
+        answer = (TextInputEditText) findViewById(R.id.answer);
 
-        register_submit = (Button) findViewById(R.id.register_submit);
-        cancel_button = (Button) findViewById(R.id.cancel_button);
+        question = (AppCompatSpinner) findViewById(R.id.question);
+        grad_year = (AppCompatSpinner) findViewById(R.id.year);
+        user_major = (AppCompatSpinner) findViewById(R.id.major);
+
+        register_submit = (FloatingActionButton) findViewById(R.id.register_submit);
+        cancel_button = (FloatingActionButton) findViewById(R.id.cancel_button);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        // Grab Spinner Selection
+        question.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected_question = question.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        grad_year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected_grad_year = grad_year.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        user_major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected_major = user_major.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         cancel_button.setOnClickListener(new View.OnClickListener(){
             @Override

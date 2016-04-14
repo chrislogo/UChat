@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lost Password?"
-        android:id="@+id/button3"
+        android:id="@+id/lost_pass"
         android:layout_alignBottom="@+id/reg_button"
         android:layout_toRightOf="@+id/reg_button"
         android:layout_toEndOf="@+id/reg_button" />

@@ -1,10 +1,46 @@
 <resources>
     <string name="app_name">UChat</string>
     <array name="grade_year">
+        <item>Choose One</item>
         <item>Freshman</item>
         <item>Sophomore</item>
         <item>Junior</item>
         <item>Senior</item>
+    </array>
+
+    <array name="offered_majors">
+        <item> Choose One </item>
+        <item> Accounting </item>
+        <item> Biology </item>
+        <item> Biomedical Engineering </item>
+        <item> Business Administration </item>
+        <item> Chemistry </item>
+        <item> Communication </item>
+        <item> Computer Criminology </item>
+        <item> Computer Engineering </item>
+        <item> Computer Science </item>
+        <item> Criminology </item>
+        <item> Dance </item>
+        <item> Education </item>
+        <item> Electrical Engineering </item>
+        <item> Elementary Education </item>
+        <item> Finance </item>
+        <item> Humanities </item>
+        <item> Information Technology </item>
+        <item> Law and Society </item>
+        <item> Mathematics </item>
+        <item> Marketing </item>
+        <item> Mechanical Engineering </item>
+        <item> Meteorology </item>
+        <item> Music </item>
+        <item> Nursing </item>
+        <item> Philosophy </item>
+        <item> Physics </item>
+        <item> Political Science </item>
+        <item> Psychology </item>
+        <item> Sociology </item>
+        <item> Statistics </item>
+        <item> Theatre </item>
     </array>
 
     <string name="Search">Search</string>
@@ -14,6 +50,7 @@
 
 
     <array name="sec_quest">
+        <item>Choose One</item>
         <item>What is your favorite color?</item>
         <item>What is your mothers maiden name?</item>
         <item>What is your favorite class?</item>

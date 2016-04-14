@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String pref_string = "LOGIN";
     ImageView login_logo;
     EditText login_username, login_password;
-    Button reg_button,log_button;
+    Button reg_button,log_button, lost_pass_button;
     String log_url = "http://73.42.47.33/login.php";
     RequestQueue requestQueue;
     private StringRequest request;
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         login_password = (EditText) findViewById(R.id.password);
         reg_button = (Button) findViewById(R.id.reg_button);
         log_button = (Button) findViewById(R.id.log_button);
-
+        lost_pass_button = (Button) findViewById(R.id.lost_pass);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), CreateUser.class));
             }
         });
-
 
         log_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +107,13 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 requestQueue.add(request);
+            }
+        });
+
+        lost_pass_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), ForgotPassword.class));
             }
         });
     }
