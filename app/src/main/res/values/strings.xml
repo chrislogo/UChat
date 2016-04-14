@@ -47,6 +47,7 @@
     <string name="Profile">Profile</string>
     <string name="Logout">Logout</string>
     <string name="Send">Send</string>
+    <string name="RateAProf">Rate A Professor</string>
 
 
     <array name="sec_quest">
@@ -59,7 +60,7 @@
     </array>
 
     <string-array name="courses">
-        <item>Select</item>
+        <item>Choose One</item>
         <item>COP3014 - Intro to Programming</item>
         <item>COP3330 - Object Oriented Programming</item>
         <item>COP4610 - Operating Systems</item>
@@ -67,6 +68,7 @@
     </string-array>
 
     <string-array name="professors">
+        <item>Choose One</item>
         <item>Caitlin Carnahan</item>
         <item>Andy Wang</item>
         <item>Zhi Wang</item>

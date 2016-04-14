@@ -191,6 +191,11 @@ public class ChatActivity extends AppCompatActivity
         s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
         settingsMenuItem.setTitle(s);
 
+        settingsMenuItem = menu.findItem(R.id.rateaprof);
+        s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
         settingsMenuItem = menu.findItem(R.id.logout);
         s = new SpannableString(settingsMenuItem.getTitle());
         s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
@@ -208,6 +213,10 @@ public class ChatActivity extends AppCompatActivity
         else if(item.getItemId() == R.id.profile)
         {
             startActivity(new Intent(getBaseContext(), Profile.class));
+        }
+        else if(item.getItemId() == R.id.rateaprof)
+        {
+            startActivity(new Intent(getBaseContext(), RateProfessor.class));
         }
         else if(item.getItemId() == R.id.logout)
         {

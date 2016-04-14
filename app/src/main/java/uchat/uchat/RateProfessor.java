@@ -27,12 +27,12 @@ public class RateProfessor extends AppCompatActivity {
         courseSpinner.setAdapter(spindapter);
         profSpinner.setAdapter(spindapter2);
 
-        courseSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* courseSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String courseSelected = parent.getItemAtPosition(position).toString();
 
             }
-        });
+        });*/
     }
 }

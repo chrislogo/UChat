@@ -21,7 +21,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Select Class to Rate"
+                android:textSize="28dp"
                 android:id="@+id/textView"
+                android:paddingTop="20dp"
+                android:paddingBottom="25dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="54dp" />
@@ -38,7 +41,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Professor Who Taught It"
+                android:textSize="28dp"
                 android:id="@+id/textView2"
+                android:paddingTop="20dp"
+                android:paddingBottom="25dp"
                 android:layout_below="@+id/class_spin"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="32dp" />
@@ -54,8 +60,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingBar"
+                android:progressTint="@color/Garnet"
                 android:layout_below="@+id/prof_spin"
                 android:layout_centerHorizontal="true"
+                android:paddingBottom="10dp"
                 android:layout_marginTop="28dp" />
 
             <EditText
@@ -70,5 +78,14 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/rapsubmit"
+        android:background="@color/Garnet"
+        android:textColor="@color/White"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -6,6 +6,9 @@
     <item android:id="@+id/profile"
         android:title="@string/Profile" />
 
+    <item android:id="@+id/rateaprof"
+        android:title="@string/RateAProf" />
+
     <item android:id="@+id/logout"
         android:title="@string/Logout" />
 </menu>
