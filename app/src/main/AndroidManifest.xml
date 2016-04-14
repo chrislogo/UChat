@@ -26,7 +26,8 @@
             android:name=".ChatActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LogoutActivity"></activity>
+        <activity android:name=".LogoutActivity" />
+        <activity android:name=".RateProfessor"></activity>
     </application>
 
 </manifest>
