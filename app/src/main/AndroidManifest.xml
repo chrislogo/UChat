@@ -27,7 +27,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LogoutActivity" />
-        <activity android:name=".RateProfessor"></activity>
+        <activity android:name=".RateProfessor" />
+        <activity android:name=".MajorChoice"></activity>
     </application>
 
 </manifest>

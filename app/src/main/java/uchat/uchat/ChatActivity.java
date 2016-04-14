@@ -97,18 +97,6 @@ public class ChatActivity extends AppCompatActivity
        //IF WE GET ERRORS, MAKE SURE PREF !NULL
 
 
-/*
-        mNavigationDrawerItemTitles = new String[9];
-        mNavigationDrawerItemTitles[0] = "Guy 1";
-        mNavigationDrawerItemTitles[1] = "Guy 2";
-        mNavigationDrawerItemTitles[2] = "Guy 3";
-        mNavigationDrawerItemTitles[3] = "Guy 4";
-        mNavigationDrawerItemTitles[4] = "Guy 5";
-        mNavigationDrawerItemTitles[5] = "Guy 6";
-        mNavigationDrawerItemTitles[6] = "Guy 7";
-        mNavigationDrawerItemTitles[7] = "Guy 8";
-*/
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -215,7 +203,7 @@ public class ChatActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.search)
         {
-
+            startActivity(new Intent(getBaseContext(), MajorChoice.class));
         }
         else if(item.getItemId() == R.id.profile)
         {
@@ -240,6 +228,7 @@ public class ChatActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 }

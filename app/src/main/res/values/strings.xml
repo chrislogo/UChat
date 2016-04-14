@@ -61,14 +61,17 @@
     <string-array name="courses">
         <item>Select</item>
         <item>COP3014 - Intro to Programming</item>
+        <item>COP3330 - Object Oriented Programming</item>
         <item>COP4610 - Operating Systems</item>
+        <item>COP4656 - Mobile Programming</item>
     </string-array>
 
     <string-array name="professors">
-        <item>Caitlyn Carnahan</item>
+        <item>Caitlin Carnahan</item>
         <item>Andy Wang</item>
         <item>Zhi Wang</item>
         <item>Xiuwen Liu</item>
+        <item>Leon Brown</item>
         <item>Robert "Hamlet IRL" Myers</item>
         <item>Melina Myers</item>
         <item>Justin Cole</item>
