@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     public static final String pref_string = "LOGIN";
     ImageView login_logo;
-    EditText login_username, login_password;
+    TextInputEditText login_username, login_password;
     Button reg_button,log_button, lost_pass_button;
     String log_url = "http://73.42.47.33/login.php";
     RequestQueue requestQueue;
@@ -42,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         login_logo = (ImageView) findViewById(R.id.logo_login);
-        login_username = (EditText) findViewById(R.id.username);
-        login_password = (EditText) findViewById(R.id.password);
+        login_username =  (TextInputEditText) findViewById(R.id.username);
+        login_password =  (TextInputEditText) findViewById(R.id.password);
         reg_button = (Button) findViewById(R.id.reg_button);
         log_button = (Button) findViewById(R.id.log_button);
         lost_pass_button = (Button) findViewById(R.id.lost_pass);

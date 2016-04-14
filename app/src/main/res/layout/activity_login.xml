@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="uchat.uchat.LoginActivity"
-    android:background="#ceb888">
+    android:background="@color/Garnet">
 
     <ImageView
         android:id="@+id/logo_login"
@@ -18,32 +18,46 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:inputType="text"
-        android:ems="10"
-        android:hint="Username"
-        android:id="@+id/username"
-        android:layout_margin="15dp"
-        android:paddingRight="20dp"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/usernameWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/logo_login"
-        android:layout_centerHorizontal="true"
-        android:background="#FFFFFF"
-        android:textColor="#000000"/>
+        android:layout_marginTop="4dp"
+        android:textColorHint="@color/Gold">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:paddingRight="20dp"
-        android:ems="10"
-        android:id="@+id/password"
-        android:background="#FFFFFF"
-        android:textColor="#000000"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Username"
+            android:textColorHint="@color/Gold"
+            android:textColor="@color/White"
+            android:fontFamily="sans-serif"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/passwordWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameWrapper"
+        android:layout_marginTop="4dp"
+        android:textColorHint="@color/Gold">>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textColorHint="@color/Gold"
+            android:textColor="@color/White"
+            android:fontFamily="sans-serif" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -52,21 +66,19 @@
         android:onClick="Validate_Cred"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
-        android:background="#540115"
-        android:textColor="#ffffff"
+        android:background="@color/Gold"
         android:id="@+id/log_button"
         android:layout_marginTop="36dp"
-        android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password" />
+        android:layout_below="@+id/passwordWrapper"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register Today!"
         android:id="@+id/reg_button"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="23dp"
         android:layout_below="@+id/log_button"
         android:layout_alignParentLeft="true"
@@ -78,7 +90,11 @@
         android:text="Lost Password?"
         android:id="@+id/lost_pass"
         android:layout_alignBottom="@+id/reg_button"
-        android:layout_toRightOf="@+id/reg_button"
-        android:layout_toEndOf="@+id/reg_button" />
+        android:layout_marginRight="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/log_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
