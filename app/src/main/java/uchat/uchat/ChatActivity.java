@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,16 +24,30 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ChatActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String[] mNavigationDrawerItemTitles;
     private ListView mDrawerList;
+    private String [] users;
+    StringRequest stringRequest;
+    String url = "http://73.42.47.33/online_users.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,8 +55,46 @@ public class ChatActivity extends AppCompatActivity
 
         String pref_response = shared_pref.getString("username", "");
 
+
+        stringRequest = new StringRequest(url,new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(ChatActivity.this, "in function", Toast.LENGTH_SHORT).show();
+                try{
+                    Toast.makeText(ChatActivity.this, "len: ", Toast.LENGTH_SHORT).show();
+                    JSONArray jsonArray = new JSONArray(response);
+                    mNavigationDrawerItemTitles =  new String[jsonArray.length()];
+
+
+                    for (int i=0; i < mNavigationDrawerItemTitles.length; i++){
+                        JSONObject jo = jsonArray.getJSONObject(i);
+                        mNavigationDrawerItemTitles[i] = jo.getString("username");
+                        Toast.makeText(ChatActivity.this, mNavigationDrawerItemTitles[i], Toast.LENGTH_SHORT).show();
+                    }
+
+                    mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
+                    mDrawerList.setAdapter((new OnlineUsersAdapter(ChatActivity.this, mNavigationDrawerItemTitles)));
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+                //Toast.makeText(ChatActivity.this, users[0], Toast.LENGTH_SHORT).show();
+            }
+        },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        Toast.makeText(ChatActivity.this, "hello", Toast.LENGTH_SHORT).show();
+                        Log.i("Error", error.getMessage());
+                    }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
        //IF WE GET ERRORS, MAKE SURE PREF !NULL
 
+
+/*
         mNavigationDrawerItemTitles = new String[9];
         mNavigationDrawerItemTitles[0] = "Guy 1";
         mNavigationDrawerItemTitles[1] = "Guy 2";
@@ -51,7 +104,7 @@ public class ChatActivity extends AppCompatActivity
         mNavigationDrawerItemTitles[5] = "Guy 6";
         mNavigationDrawerItemTitles[6] = "Guy 7";
         mNavigationDrawerItemTitles[7] = "Guy 8";
-
+*/
 
 
 
@@ -65,13 +118,14 @@ public class ChatActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
+       // mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
 
         // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mNavigationDrawerItemTitles);
 
-        mDrawerList.setAdapter((new OnlineUsersAdapter(this, mNavigationDrawerItemTitles)));
+        //mDrawerList.setAdapter((new OnlineUsersAdapter(this, mNavigationDrawerItemTitles)));
 
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+       /* mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // grab preferences
                 // SharedPreferences settings = getSharedPreferences(, 0);
@@ -93,7 +147,27 @@ public class ChatActivity extends AppCompatActivity
                 startActivity(intent);
 
             }
-        });
+        });*/
+    }
+
+    private void showJSON(String json){
+        JSONObject jsonObject=null;
+
+        try{
+            jsonObject = new JSONObject(json);
+            JSONArray results = jsonObject.getJSONArray(json);
+
+            users =  new String[results.length()];
+
+            for (int i=0; i < results.length(); i++){
+                Toast.makeText(ChatActivity.this, "in function", Toast.LENGTH_SHORT).show();
+                JSONObject jo = results.getJSONObject(i);
+                users[i] = jo.getString("username");
+            }
+
+        }catch(JSONException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -146,7 +220,7 @@ public class ChatActivity extends AppCompatActivity
         }
         else if(item.getItemId() == R.id.logout)
         {
-            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            startActivity(new Intent(getBaseContext(), LogoutActivity.class));
         }
 
         //return true;
