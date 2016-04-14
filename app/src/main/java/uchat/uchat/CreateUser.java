@@ -1,6 +1,7 @@
 package uchat.uchat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -66,6 +68,7 @@ public class CreateUser extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selected_question = question.getItemAtPosition(position).toString();
+                //((TextView) question.getItemAtPosition(position)).setTextColor(getResources().getColor(R.color.White));
             }
 
             @Override
@@ -78,6 +81,7 @@ public class CreateUser extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selected_grad_year = grad_year.getItemAtPosition(position).toString();
+                //((TextView) grad_year.getItemAtPosition(position)).setTextColor(getResources().getColor(R.color.White));
             }
 
             @Override
@@ -90,6 +94,7 @@ public class CreateUser extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selected_major = user_major.getItemAtPosition(position).toString();
+                //((TextView) user_major.getItemAtPosition(position)).setTextColor(getResources().getColor(R.color.White));
             }
 
             @Override

@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/Garnet</item>
+        <item name="colorPrimaryDark">@color/Garnet</item>
+        <item name="colorAccent">@color/Gold</item>
         <item name="actionOverflowMenuStyle">@style/CustColorOptionsMenu</item>
     </style>
 
@@ -13,6 +13,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+    </style>
+
+    <style name="white_text">
+        <item name="android:textAppearance">@color/White</item>
     </style>
 
     <style name="CustColorOptionsMenu" parent="Widget.AppCompat.PopupMenu.Overflow">

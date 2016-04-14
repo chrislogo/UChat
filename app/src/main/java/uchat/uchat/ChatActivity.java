@@ -59,31 +59,34 @@ public class ChatActivity extends AppCompatActivity
         stringRequest = new StringRequest(url,new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(ChatActivity.this, "in function", Toast.LENGTH_SHORT).show();
                 try{
-                    Toast.makeText(ChatActivity.this, "len: ", Toast.LENGTH_SHORT).show();
+                    //get json array returned from scrpit
                     JSONArray jsonArray = new JSONArray(response);
+                    //set String arrya equal to length of json array
                     mNavigationDrawerItemTitles =  new String[jsonArray.length()];
 
-
+                    //iterate through all the json array
                     for (int i=0; i < mNavigationDrawerItemTitles.length; i++){
+                        //get JSONObject at JSONArray[i]
+                        //This lets us see grab the value from key
                         JSONObject jo = jsonArray.getJSONObject(i);
+                        //grab value from key and store it in string array
                         mNavigationDrawerItemTitles[i] = jo.getString("username");
-                        Toast.makeText(ChatActivity.this, mNavigationDrawerItemTitles[i], Toast.LENGTH_SHORT).show();
                     }
 
+                    //had to put this in here for scoping purposed, but this might cause scoping
+                    //issues later on when we try and implement onclick for the online users
                     mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
                     mDrawerList.setAdapter((new OnlineUsersAdapter(ChatActivity.this, mNavigationDrawerItemTitles)));
                 }catch(JSONException e){
                     e.printStackTrace();
                 }
-                //Toast.makeText(ChatActivity.this, users[0], Toast.LENGTH_SHORT).show();
             }
+
         },
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
-                        Toast.makeText(ChatActivity.this, "hello", Toast.LENGTH_SHORT).show();
                         Log.i("Error", error.getMessage());
                     }
         });
