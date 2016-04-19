@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class LogoutActivity extends AppCompatActivity {
 
-    String logout_url = "http://72.43.47.33/logout.php?username=";
+    String logout_url = "http://73.42.47.33/logout.php?username=";
 
     private StringRequest request;
 
@@ -34,12 +34,11 @@ public class LogoutActivity extends AppCompatActivity {
         final String pref_response = shared_pref.getString("username", "");
 
         logout_url+=pref_response;
-        Toast.makeText(LogoutActivity.this, logout_url, Toast.LENGTH_LONG).show();
         request = new StringRequest(Request.Method.GET, logout_url,
                new Response.Listener<String>() {
                    @Override
                    public void onResponse(String response) {
-                       Toast.makeText(LogoutActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(LogoutActivity.this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
                    }
                }, new Response.ErrorListener(){
                     @Override
@@ -49,6 +48,6 @@ public class LogoutActivity extends AppCompatActivity {
                });
         requestQueue.add(request);
 
-
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }

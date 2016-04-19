@@ -28,18 +28,6 @@ public class Chat extends WebViewFragment {
         return V;
     }
 
-
-    public class JavaScriptInterface
-    {
-        private Activity activity;
-
-        public JavaScriptInterface(Activity activity)
-        {
-            this.activity = activity;
-        }
-    }
-
-    @JavascriptInterface
     @Override
     public void onActivityCreated(Bundle state) {
         super.onActivityCreated(state);
@@ -47,28 +35,16 @@ public class Chat extends WebViewFragment {
         SharedPreferences shared_pref = getActivity().getSharedPreferences(LoginActivity.pref_string, 0);
         pref_response = shared_pref.getString("username", "");
 
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("username", pref_response);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         // change the webView according to what is clicked
         WebView WV = getWebView();
-        class JsObject{
-            @JavascriptInterface
-            public String toString(){return pref_response;}
-        }
+
         WV.getSettings().setDomStorageEnabled(true);
         WV.getSettings().setJavaScriptEnabled(true);
-        WV.addJavascriptInterface(new JsObject(), "username");
 
-        //@JavascriptInterface
-        WV.addJavascriptInterface(this, "webConnector");
-        WV.addJavascriptInterface(this, "toaster");
+        String html = "http://73.42.47.33/chat-script.php?username=" + pref_response;
 
-        WV.loadUrl("http://73.42.47.33/chat-page.html");
+        WV.loadUrl(html);
 
 
         // disable scroll on touch
@@ -90,24 +66,5 @@ public class Chat extends WebViewFragment {
         });
     }
 
-    @JavascriptInterface
-    public JSONObject load()
-    {
-        Toast.makeText(getActivity(), pref_response, Toast.LENGTH_SHORT).show();
 
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("username", "Chris");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return jsonObject;
-    }
-
-    @JavascriptInterface
-    public void print(String message)
-    {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-    }
 }

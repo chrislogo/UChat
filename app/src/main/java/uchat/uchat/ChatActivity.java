@@ -41,7 +41,7 @@ public class ChatActivity extends AppCompatActivity
     private ListView mDrawerList;
     private String [] users;
     StringRequest stringRequest;
-    String url = "http://73.42.47.33/online_users.php";
+    String url = "http://73.42.47.33/online-users.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
