@@ -1,7 +1,9 @@
 package uchat.uchat;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,34 +12,45 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewFragment;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 // webView fragment
-public class Chat extends WebViewFragment
-{
+public class Chat extends WebViewFragment {
+    public String pref_response;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
         View V = super.onCreateView(inflater, container, state);
 
         return V;
     }
 
-    @Override
-    public void onActivityCreated(Bundle state)
+
+    public class JavaScriptInterface
     {
+        private Activity activity;
+
+        public JavaScriptInterface(Activity activity)
+        {
+            this.activity = activity;
+        }
+    }
+
+    @JavascriptInterface
+    @Override
+    public void onActivityCreated(Bundle state) {
         super.onActivityCreated(state);
 
         SharedPreferences shared_pref = getActivity().getSharedPreferences(LoginActivity.pref_string, 0);
-        final String pref_response = shared_pref.getString("username", "");
+        pref_response = shared_pref.getString("username", "");
 
         JSONObject jsonObject = new JSONObject();
-        try{
+        try {
             jsonObject.put("username", pref_response);
-        }catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -45,12 +58,15 @@ public class Chat extends WebViewFragment
         WebView WV = getWebView();
         class JsObject{
             @JavascriptInterface
-            public String toSring(){return pref_response;}
+            public String toString(){return pref_response;}
         }
         WV.getSettings().setDomStorageEnabled(true);
         WV.getSettings().setJavaScriptEnabled(true);
         WV.addJavascriptInterface(new JsObject(), "username");
 
+        //@JavascriptInterface
+        WV.addJavascriptInterface(this, "webConnector");
+        WV.addJavascriptInterface(this, "toaster");
 
         WV.loadUrl("http://73.42.47.33/chat-page.html");
 
@@ -72,5 +88,26 @@ public class Chat extends WebViewFragment
                 return false;
             }
         });
+    }
+
+    @JavascriptInterface
+    public JSONObject load()
+    {
+        Toast.makeText(getActivity(), pref_response, Toast.LENGTH_SHORT).show();
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("username", "Chris");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
+
+    @JavascriptInterface
+    public void print(String message)
+    {
+        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
 }

@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             //check for success JSON object
                             if(jsonObject.names().get(0).equals("success")){
-                                Toast.makeText(getApplicationContext(), "Success: " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                            //    Toast.makeText(getApplicationContext(), "Success: " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
 
                                 //keeps username alive for other activities
                                 SharedPreferences pref = getApplicationContext().getSharedPreferences(pref_string, 0);
