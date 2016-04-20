@@ -31,6 +31,8 @@
         <activity android:name=".LogoutActivity" />
         <activity android:name=".RateProfessor" />
         <activity android:name=".MajorChoice" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".CalendarActivity"/>
         <activity android:name=".LoginActivity"></activity>
     </application>
 

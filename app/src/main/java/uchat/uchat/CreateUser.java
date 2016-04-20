@@ -5,11 +5,19 @@ import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -187,6 +195,70 @@ public class CreateUser extends AppCompatActivity {
                 requestQueue.add(request);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem settingsMenuItem = menu.findItem(R.id.search);
+        SpannableString s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        settingsMenuItem = menu.findItem(R.id.profile);
+        s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        settingsMenuItem = menu.findItem(R.id.rateaprof);
+        s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        settingsMenuItem = menu.findItem(R.id.logout);
+        s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        }
+        else if(item.getItemId() == R.id.search)
+        {
+            startActivity(new Intent(getBaseContext(), MajorChoice.class));
+        }
+        else if(item.getItemId() == R.id.profile)
+        {
+            startActivity(new Intent(getBaseContext(), Profile.class));
+        }
+        else if(item.getItemId() == R.id.rateaprof)
+        {
+            startActivity(new Intent(getBaseContext(), RateProfessor.class));
+        }
+        else if(item.getItemId() == R.id.logout)
+        {
+            startActivity(new Intent(getBaseContext(), LogoutActivity.class));
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

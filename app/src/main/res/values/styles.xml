@@ -14,24 +14,19 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
     </style>
 
     <style name="Spinner_Style" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textColor">@color/White</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:background">@color/White</item>
     </style>
 
     <style name="FloatButton_Style" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/White</item>
-
     </style>
 
     <style name="white_text">
-        <item name="android:textAppearance">@color/White</item>
+        <item name="android:textAppearance">@color/Black</item>
     </style>
 
     <style name="CustColorOptionsMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
