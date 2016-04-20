@@ -186,7 +186,7 @@ public class CreateUser extends AppCompatActivity {
                         hashMap.put("password", register_password.getText().toString());
                         hashMap.put("email", user_email.getText().toString());
                         hashMap.put("question", question.getSelectedItem().toString());
-                        hashMap.put("answer", answer.toString());
+                        hashMap.put("answer", answer.getText().toString());
 
                         return hashMap;
                     }

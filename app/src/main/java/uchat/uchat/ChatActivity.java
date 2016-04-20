@@ -55,6 +55,8 @@ public class ChatActivity extends AppCompatActivity
 
         String pref_response = shared_pref.getString("username", "");
 
+        mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
+
 
         stringRequest = new StringRequest(url,new Response.Listener<String>() {
             @Override
@@ -76,7 +78,6 @@ public class ChatActivity extends AppCompatActivity
 
                     //had to put this in here for scoping purposed, but this might cause scoping
                     //issues later on when we try and implement onclick for the online users
-                    mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
                     mDrawerList.setAdapter((new OnlineUsersAdapter(ChatActivity.this, mNavigationDrawerItemTitles)));
                 }catch(JSONException e){
                     e.printStackTrace();
@@ -116,8 +117,10 @@ public class ChatActivity extends AppCompatActivity
         //mDrawerList.setAdapter((new OnlineUsersAdapter(this, mNavigationDrawerItemTitles)));
 
 
-       /* mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //*****************We should use an intent here, no need to keep variable alive***********
+
                 // grab preferences
                 // SharedPreferences settings = getSharedPreferences(, 0);
 
@@ -138,7 +141,7 @@ public class ChatActivity extends AppCompatActivity
                 startActivity(intent);
 
             }
-        });*/
+        });
     }
 
     private void showJSON(String json){
