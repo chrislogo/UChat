@@ -87,6 +87,8 @@ public class CreateUser extends AppCompatActivity {
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));
         create_user_collapse.setCollapsedTitleTextColor(getResources().getColor(R.color.White));
 
+        cancel_button.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
+        register_submit.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -200,65 +202,6 @@ public class CreateUser extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-
-        MenuItem settingsMenuItem = menu.findItem(R.id.search);
-        SpannableString s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.profile);
-        s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.rateaprof);
-        s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.logout);
-        s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        }
-        else if(item.getItemId() == R.id.search)
-        {
-            startActivity(new Intent(getBaseContext(), MajorChoice.class));
-        }
-        else if(item.getItemId() == R.id.profile)
-        {
-            startActivity(new Intent(getBaseContext(), Profile.class));
-        }
-        else if(item.getItemId() == R.id.rateaprof)
-        {
-            startActivity(new Intent(getBaseContext(), RateProfessor.class));
-        }
-        else if(item.getItemId() == R.id.logout)
-        {
-            startActivity(new Intent(getBaseContext(), LogoutActivity.class));
-        }
-
-
-        return super.onOptionsItemSelected(item);
     }
 
 }

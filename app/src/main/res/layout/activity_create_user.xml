@@ -13,7 +13,6 @@
             android:id="@+id/create_user_collapse"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -30,6 +29,7 @@
                 android:id="@+id/create_user_toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
+                app:theme="@style/ToolbarColoredBackArrow"
                 app:layout_collapseMode="pin"/>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -362,11 +362,11 @@
                 android:layout_below="@id/input_about_me"
                 android:src="@drawable/cancel_icon"
                 android:id="@+id/cancel_button"
-                android:theme="@style/FloatButton_Style"
                 android:scaleType="center"
+                android:tint="@color/Gold"
                 android:elevation="6dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="80dp"
                 android:layout_marginLeft="80dp"
                 android:layout_alignParentStart="true"
@@ -378,11 +378,11 @@
                 android:layout_below="@id/input_about_me"
                 android:src="@drawable/submit_icon2"
                 android:id="@+id/register_submit"
-                android:theme="@style/FloatButton_Style"
                 android:scaleType="center"
+                android:tint="@color/Gold"
                 android:elevation="6dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="80dp"
                 android:layout_marginRight="80dp"
                 android:layout_alignParentEnd="true"
