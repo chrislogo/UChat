@@ -6,6 +6,33 @@
     android:id="@+id/create_user_coordinator"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="192dp"
+        android:layout_width="match_parent">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/create_user_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:id="@+id/create_user_toolbar_image"
+                android:background="@drawable/fsu_seal"
+                android:scaleType="center"
+                android:alpha="0.60"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/create_user_toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:layout_collapseMode="pin"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +51,11 @@
                 android:layout_alignParentStart="true"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:textColorHint="@color/Gold">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -45,7 +76,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:textColorHint="@color/Gold">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
@@ -66,11 +101,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 android:textColorHint="@color/Gold"
                 android:layout_below="@+id/input_last_name">
                 <android.support.design.widget.TextInputEditText
@@ -92,11 +127,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 android:textColorHint="@color/Gold"
                 android:layout_below="@+id/input_user_email">
                 <android.support.design.widget.TextInputEditText
@@ -118,11 +153,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 android:textColorHint="@color/Gold"
                 android:layout_below="@+id/input_register_username">
                 <android.support.design.widget.TextInputEditText
@@ -147,21 +182,40 @@
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_below="@+id/input_register_password">
             </android.support.v7.widget.AppCompatTextView>
 
-            <android.support.v7.widget.AppCompatSpinner
-                android:id="@+id/question"
+            <RelativeLayout
+                android:layout_width="230dp"
+                android:id="@+id/question_layout"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_box"
+                android:orientation="horizontal"
+                android:layout_below="@+id/input_register_password"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/Gold"
-                android:entries="@array/sec_quest"
-                android:layout_below="@+id/input_register_password">
-            </android.support.v7.widget.AppCompatSpinner>
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:backgroundTint="@color/Gold"
+                    android:theme="@style/Spinner_Style"
+                    android:popupBackground="@color/Garnet"
+                    android:entries="@array/sec_quest">
+                </android.support.v7.widget.AppCompatSpinner>
+
+            </RelativeLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_answer"
@@ -169,13 +223,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 android:textColorHint="@color/Gold"
-                android:layout_below="@+id/question">
+                android:layout_below="@+id/question_layout">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -194,25 +248,44 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_width="wrap_content"
-                android:text="Grad Year"
+                android:text="Year"
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_below="@+id/input_answer">
             </android.support.v7.widget.AppCompatTextView>
 
-            <android.support.v7.widget.AppCompatSpinner
-                android:id="@+id/year"
+            <RelativeLayout
+                android:layout_width="230dp"
+                android:id="@+id/year_layout"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_box"
+                android:orientation="horizontal"
+                android:layout_below="@+id/input_answer"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/Gold"
-                android:entries="@array/grade_year"
-                android:layout_below="@+id/input_answer">
-            </android.support.v7.widget.AppCompatSpinner>
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/year"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:backgroundTint="@color/Gold"
+                    android:theme="@style/Spinner_Style"
+                    android:popupBackground="@color/Garnet"
+                    android:entries="@array/grade_year">
+                </android.support.v7.widget.AppCompatSpinner>
+
+            </RelativeLayout>
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/major_text"
@@ -223,21 +296,40 @@
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_below="@+id/year_text">
             </android.support.v7.widget.AppCompatTextView>
 
-            <android.support.v7.widget.AppCompatSpinner
-                android:id="@+id/major"
+            <RelativeLayout
+                android:layout_width="230dp"
+                android:id="@+id/major_layout"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_box"
+                android:orientation="horizontal"
+                android:layout_below="@+id/year_text"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/Gold"
-                android:entries="@array/offered_majors"
-                android:layout_below="@+id/year_text">
-            </android.support.v7.widget.AppCompatSpinner>
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp">
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/major"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:backgroundTint="@color/Gold"
+                    android:theme="@style/Spinner_Style"
+                    android:popupBackground="@color/Garnet"
+                    android:entries="@array/offered_majors">
+                </android.support.v7.widget.AppCompatSpinner>
+
+            </RelativeLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_about_me"
@@ -245,11 +337,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 android:textColorHint="@color/Gold"
                 android:layout_below="@+id/major_text">
                 <android.support.design.widget.TextInputEditText
@@ -268,29 +360,32 @@
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/register_submit"
-                android:src="@drawable/submit_icon2"
                 android:layout_below="@id/input_about_me"
-                android:elevation="6dp"
+                android:src="@drawable/cancel_icon"
+                android:id="@+id/cancel_button"
+                android:theme="@style/FloatButton_Style"
                 android:scaleType="center"
+                android:elevation="6dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_marginStart="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true" />
 
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/input_about_me"
-                android:src="@drawable/cancel_icon"
-                android:id="@+id/cancel_button"
+                android:src="@drawable/submit_icon2"
+                android:id="@+id/register_submit"
+                android:theme="@style/FloatButton_Style"
                 android:scaleType="center"
+                android:elevation="6dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="100dp"
-                android:layout_marginRight="100dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginRight="80dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true" />
 

@@ -2,14 +2,17 @@ package uchat.uchat;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,6 +35,9 @@ import java.util.Map;
 
 public class CreateUser extends AppCompatActivity {
 
+    CollapsingToolbarLayout create_user_collapse;
+    Toolbar create_user_toolbar;
+
     TextInputEditText first_name, last_name, user_email, answer, register_username, register_password;
     AppCompatSpinner question, grad_year, user_major;
     FloatingActionButton register_submit, cancel_button;
@@ -45,7 +51,9 @@ public class CreateUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
-        setTitle("Create Account");
+
+        create_user_collapse = (CollapsingToolbarLayout) findViewById(R.id.create_user_collapse);
+        create_user_toolbar = (Toolbar) findViewById(R.id.create_user_toolbar);
 
         first_name = (TextInputEditText) findViewById(R.id.first_name);
         last_name = (TextInputEditText) findViewById(R.id.last_name);
@@ -62,6 +70,33 @@ public class CreateUser extends AppCompatActivity {
         cancel_button = (FloatingActionButton) findViewById(R.id.cancel_button);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        setSupportActionBar(create_user_toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        create_user_collapse.setTitle("Create Account");
+        create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));
+        create_user_collapse.setCollapsedTitleTextColor(getResources().getColor(R.color.White));
+
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sec_quest, R.layout.spinner_view);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        question.setAdapter(adapter);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.grade_year, R.layout.spinner_view);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        grad_year.setAdapter(adapter2);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                R.array.offered_majors, R.layout.spinner_view);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        user_major.setAdapter(adapter3);
 
         // Grab Spinner Selection
         question.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -116,18 +151,18 @@ public class CreateUser extends AppCompatActivity {
                 request = new StringRequest(Request.Method.POST, insertUrl, new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response){
-                       try{
-                           JSONObject jsonObject = new JSONObject(response);
-                           //check the first slot of returned object for success
-                           if(jsonObject.names().get(0).equals("success")){
-                               Toast.makeText(getApplicationContext(),"" + jsonObject.getString("success"), Toast.LENGTH_LONG).show();
-                               startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                           }else{
-                               Toast.makeText(getApplicationContext(), jsonObject.getString("error"), Toast.LENGTH_LONG).show();
-                           }
-                       }catch(JSONException e){
-                           e.printStackTrace();
-                       }
+                        try{
+                            JSONObject jsonObject = new JSONObject(response);
+                            //check the first slot of returned object for success
+                            if(jsonObject.names().get(0).equals("success")){
+                                Toast.makeText(getApplicationContext(),"" + jsonObject.getString("success"), Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            }else{
+                                Toast.makeText(getApplicationContext(), jsonObject.getString("error"), Toast.LENGTH_LONG).show();
+                            }
+                        }catch(JSONException e){
+                            e.printStackTrace();
+                        }
 
                     }
                 }, new Response.ErrorListener(){

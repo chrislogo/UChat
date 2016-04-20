@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/Black</color>
+    <color name="colorPrimary">@color/Garnet</color>
     <color name="colorPrimaryDark">#4b0211</color>
     <color name="colorAccent">@color/Gold</color>
-    <color name="optionMenuTextColor">#ffffff</color>
+    <color name="optionMenuTextColor">@color/White</color>
     <color name="Garnet">#540115</color>
     <color name="Gold">#C4993B</color>
     <color name="White">#FFFFFF</color>

@@ -3,10 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/Garnet</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/Garnet</item>
         <item name="colorAccent">@color/Gold</item>
         <item name="actionOverflowMenuStyle">@style/CustColorOptionsMenu</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -15,12 +17,25 @@
 
     </style>
 
+    <style name="Spinner_Style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/White</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="FloatButton_Style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/White</item>
+
+    </style>
+
     <style name="white_text">
         <item name="android:textAppearance">@color/White</item>
     </style>
 
     <style name="CustColorOptionsMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
-        <item name="android:popupBackground">@color/colorPrimary</item>
+        <item name="android:popupBackground">@color/Black</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
