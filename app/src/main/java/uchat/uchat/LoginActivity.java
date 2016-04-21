@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("username", login_username.getText().toString());
                                 editor.apply();
 
-                                startActivity(new Intent(getBaseContext(), ChatActivity.class));
+                                startActivity(new Intent(getBaseContext(), MainActivity.class));
                             }
                             else if(jsonObject.names().get(0).equals("empty")){
                                 Toast.makeText(getApplicationContext(), "Error: "+jsonObject.getString("empty"), Toast.LENGTH_LONG).show();
