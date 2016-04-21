@@ -22,7 +22,7 @@ public class MainActivity extends TabActivity {
         TabHost tabHost = getTabHost(); // The activity TabHost
         TabHost.TabSpec spec;
 
-        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+        Intent intent = new Intent(MainActivity.this, CardRecycler.class);
         spec = tabHost.newTabSpec("chat_layout").setIndicator(null,
                 getResources().getDrawable(R.drawable.chat_icon)).setContent(intent);
         tabHost.addTab(spec);
@@ -37,7 +37,7 @@ public class MainActivity extends TabActivity {
                 getResources().getDrawable(R.drawable.rate_icon)).setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent(MainActivity.this, CardRecycler.class);
+        intent = new Intent(MainActivity.this, Profile.class);
         spec = tabHost.newTabSpec( "user_profile" ).setIndicator( null,
                 getResources().getDrawable(R.drawable.profile_icon)).setContent(intent);
         tabHost.addTab(spec);

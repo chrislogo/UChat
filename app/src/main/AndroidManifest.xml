@@ -37,7 +37,9 @@
         <activity android:name=".QuestionActivity" />
         <activity android:name=".ViewProfessors" />
         <activity android:name=".BrowseRatings" />
-        <activity android:name=".CardRecycler"></activity>
+        <activity android:name=".CardRecycler" />
+        <activity android:name=".RVAdapter" />
+        <activity android:name=".ChatRoomCard"></activity>
     </application>
 
 </manifest>
