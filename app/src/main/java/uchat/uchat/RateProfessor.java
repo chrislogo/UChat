@@ -32,7 +32,7 @@ public class RateProfessor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_professor);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.rate_toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
