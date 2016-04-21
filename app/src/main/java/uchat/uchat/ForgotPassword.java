@@ -67,17 +67,15 @@ public class ForgotPassword extends AppCompatActivity {
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));
         create_user_collapse.setCollapsedTitleTextColor(getResources().getColor(R.color.White));
 
-<<<<<<< HEAD
-=======
+
         retrieve_cancel.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
         retrieve_submit.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
->>>>>>> origin/master
+
 
         retrieve_submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 boolean error = false;
                 if (retrieve_email.getText().toString().isEmpty()) {
                     retrieve_email.setError("Email cannot be empty");
@@ -89,8 +87,11 @@ public class ForgotPassword extends AppCompatActivity {
                         public void onResponse(String response) {
                             try {
                                 Log.i("STATE::", "TOP");
+                                retrieve_email.setError(null);
                                 JSONObject jo = new JSONObject(response);
-                                if (jo.getString("question").equals("error")) {
+                                String quest = jo.getString("question");
+
+                                if (quest.equals("error")) {
                                     retrieve_email.setError("Email does not exist");
                                     Log.i("EMAIL", jo.getString("question"));
                                 } else {
@@ -99,7 +100,7 @@ public class ForgotPassword extends AppCompatActivity {
                                     bundle.putString("answer", jo.getString("answer"));
                                     bundle.putString("email", retrieve_email.getText().toString());
                                     Toast.makeText(ForgotPassword.this, jo.getString("question"), Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), ChangePassword.class);
+                                    Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
                                     intent.putExtras(bundle);
                                     startActivity(intent);
 
@@ -121,9 +122,8 @@ public class ForgotPassword extends AppCompatActivity {
 
 
                 }
-=======
-                startActivity(new Intent(getApplicationContext(), QuestionActivity.class));
->>>>>>> origin/master
+
+
             }
         });
 
