@@ -61,6 +61,15 @@ public class CardRecycler extends AppCompatActivity {
 
             }
         });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                persons.add(new ChatRoomCard("COP4610", R.drawable.profile_icon));
+                rvAdapter.notifyDataSetChanged();
+                startActivity(new Intent(CardRecycler.this, MajorChoice.class));
+            }
+        });
     }
 
     private void initializeData(){

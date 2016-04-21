@@ -124,65 +124,13 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:id="@+id/profile_secquest_text"
-                android:textColor="@color/Garnet"
-                android:text="Secret Question:"
-                android:layout_margin="15dp"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:layout_below="@id/profile_username"/>
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:id="@+id/profile_secquest"
-                android:textColor="@color/Gold"
-                android:text="Question goes here"
-                android:layout_margin="15dp"
-                android:textSize="18sp"
-                android:gravity="center_vertical"
-                android:padding="5dp"
-                android:background="@drawable/background_box"
-                android:layout_toRightOf="@id/profile_secquest_text"
-                android:layout_toEndOf="@id/profile_secquest_text"
-                android:layout_below="@id/profile_username"/>
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:id="@+id/profile_answer_text"
-                android:textColor="@color/Garnet"
-                android:text="Answer:"
-                android:layout_margin="15dp"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:layout_below="@id/profile_secquest"/>
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:id="@+id/profile_answer"
-                android:textColor="@color/Gold"
-                android:text="*******"
-                android:layout_margin="15dp"
-                android:textSize="18sp"
-                android:gravity="center_vertical"
-                android:padding="5dp"
-                android:background="@drawable/background_box"
-                android:layout_toRightOf="@id/profile_answer_text"
-                android:layout_toEndOf="@id/profile_answer_text"
-                android:layout_below="@id/profile_secquest"/>
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="40dp"
                 android:id="@+id/profile_year_text"
                 android:textColor="@color/Garnet"
                 android:text="Year:"
                 android:layout_margin="15dp"
                 android:gravity="center_vertical"
                 android:textSize="20sp"
-                android:layout_below="@id/profile_answer"/>
+                android:layout_below="@id/profile_username"/>
 
             <TextView
                 android:layout_width="300dp"
@@ -197,7 +145,7 @@
                 android:background="@drawable/background_box"
                 android:layout_toRightOf="@id/profile_year_text"
                 android:layout_toEndOf="@id/profile_year_text"
-                android:layout_below="@id/profile_answer"/>
+                android:layout_below="@id/profile_username"/>
 
             <TextView
                 android:layout_width="150dp"

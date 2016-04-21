@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class Profile extends AppCompatActivity {
 
     ImageView profile_image;
-    TextView profile_name, profile_email, profile_username, profile_secquest,
-            profile_answer, profile_year, profile_major, profile_word_description;
+    TextView profile_name, profile_email, profile_username, profile_year,
+             profile_major, profile_word_description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,6 @@ public class Profile extends AppCompatActivity {
         profile_name = (TextView) findViewById(R.id.profile_name);
         profile_email = (TextView) findViewById(R.id.profile_email);
         profile_username = (TextView) findViewById(R.id.profile_username);
-        profile_secquest = (TextView) findViewById(R.id.profile_secquest);
-        profile_answer = (TextView) findViewById(R.id.profile_answer);
         profile_year = (TextView) findViewById(R.id.profile_year);
         profile_major = (TextView) findViewById(R.id.profile_major);
         profile_word_description = (TextView) findViewById(R.id.profile_word_description);
