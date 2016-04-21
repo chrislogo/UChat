@@ -11,7 +11,7 @@
         android:layout_height="130dp"
         android:layout_width="match_parent">
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/change_pass_collapse"
+            android:id="@+id/question_collapse"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -20,14 +20,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:id="@+id/change_pass_toolbar_image"
+                android:id="@+id/question_toolbar_image"
                 android:background="@drawable/fsu_seal"
+                android:fitsSystemWindows="true"
                 android:scaleType="center"
                 android:alpha="0.40"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/change_pass_toolbar"
+                android:id="@+id/question_toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
                 app:theme="@style/ToolbarColoredBackArrow"
@@ -47,78 +48,46 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reset Password Below:"
+                android:text="Question Goes Here"
                 android:textSize="8pt"
-                android:id="@+id/reset_password_title"
+                android:id="@+id/question_title"
                 android:layout_alignParentTop="true"
                 android:textColor="@color/Gold"
-                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="40dp"/>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_new_password"
+                android:id="@+id/input_question"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_margin="20dp"
                 android:textColorHint="@color/Gold"
-                android:layout_below="@id/reset_password_title">
+                android:layout_below="@+id/question_title">
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLength="140"
                     android:ems="10"
-                    android:id="@+id/new_password"
-                    android:hint="New Password"
+                    android:id="@+id/question"
+                    android:hint="Answer"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
                     android:backgroundTint="@color/Garnet"
-                    android:inputType="textPassword" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_confirm_password"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:textColorHint="@color/Gold"
-                android:layout_below="@+id/input_new_password">
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLength="140"
-                    android:ems="10"
-                    android:id="@+id/confirm_password"
-                    android:hint="Confirm Password"
-                    android:textColorHint="@color/Gold"
-                    android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
-                    android:inputType="textPassword" />
+                    android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/input_confirm_password"
+                android:layout_below="@id/input_question"
                 android:src="@drawable/cancel_icon"
-                android:id="@+id/reset_cancel_button"
+                android:id="@+id/question_cancel_button"
                 android:elevation="6dp"
                 android:scaleType="center"
                 android:tint="@color/Gold"
@@ -132,9 +101,9 @@
             <android.support.design.widget.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/reset_submit_button"
+                android:id="@+id/question_submit_button"
                 android:src="@drawable/submit_icon2"
-                android:layout_below="@id/input_confirm_password"
+                android:layout_below="@id/input_question"
                 android:elevation="6dp"
                 android:scaleType="center"
                 android:tint="@color/Gold"

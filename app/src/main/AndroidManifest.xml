@@ -31,9 +31,10 @@
         <activity android:name=".LogoutActivity" />
         <activity android:name=".RateProfessor" />
         <activity android:name=".MajorChoice" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".QuestionActivity"></activity>
     </application>
 
 </manifest>
