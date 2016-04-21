@@ -37,7 +37,7 @@ public class MainActivity extends TabActivity {
                 getResources().getDrawable(R.drawable.rate_icon)).setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent(MainActivity.this, Profile.class);
+        intent = new Intent(MainActivity.this, CardRecycler.class);
         spec = tabHost.newTabSpec( "user_profile" ).setIndicator( null,
                 getResources().getDrawable(R.drawable.profile_icon)).setContent(intent);
         tabHost.addTab(spec);
