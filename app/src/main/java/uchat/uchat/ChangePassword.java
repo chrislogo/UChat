@@ -11,11 +11,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ChangePassword extends AppCompatActivity {
 
@@ -24,7 +34,10 @@ public class ChangePassword extends AppCompatActivity {
 
     TextInputEditText new_password, confirm_password;
     FloatingActionButton reset_submit, reset_cancel;
-
+    StringRequest stringRequest;
+    String url = "http://73.42.47.33/update-pw.php?password=";
+    String email;
+    Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +50,11 @@ public class ChangePassword extends AppCompatActivity {
         confirm_password = (TextInputEditText) findViewById(R.id.confirm_password);
         reset_submit = (FloatingActionButton) findViewById(R.id.reset_submit_button);
         reset_cancel = (FloatingActionButton) findViewById(R.id.reset_cancel_button);
+
+        extras = getIntent().getExtras();
+        if (extras != null){
+            email = extras.getString("email");
+        }
 
         setSupportActionBar(create_user_toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -52,12 +70,28 @@ public class ChangePassword extends AppCompatActivity {
         reset_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (new_password.getText().toString().equals(confirm_password.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Password Changed", Toast.LENGTH_SHORT).show();
+                    url+=new_password.getText().toString();
+                    url+= "&email=" + email;
+                    Log.i("URL:::",url);
+                    stringRequest = new StringRequest(url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                                    Toast.makeText(ChangePassword.this, "Successfully updated password!", Toast.LENGTH_LONG).show();
+                        }
+
+                    },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.i("Error", error.getMessage());
+                                }
+                            });
+                    RequestQueue requestQueue = Volley.newRequestQueue(ChangePassword.this);
+                    requestQueue.add(stringRequest);
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }else
-                    Toast.makeText(getApplicationContext(), "ERROR: Passwords Don't Match", Toast.LENGTH_SHORT).show();
+                    new_password.setError("Passwords do not match!");
             }
         });
 
