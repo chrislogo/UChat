@@ -20,84 +20,93 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameWrapper"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo_login"
         android:layout_marginTop="4dp"
-        android:textColorHint="@color/Gold">
+        android:textColorHint="@color/Gold"
+        android:layout_centerHorizontal="true">
+
 
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/username"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="Username"
             android:textColorHint="@color/Gold"
             android:textColor="@color/White"
             android:backgroundTint="@color/White"
-            android:fontFamily="sans-serif"/>
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"/>
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/passwordWrapper"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameWrapper"
         android:layout_marginTop="4dp"
-        android:textColorHint="@color/Gold">
+        android:textColorHint="@color/Gold"
+        android:layout_centerHorizontal="true">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/password"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password"
             android:textColorHint="#C4993B"
             android:textColor="@color/White"
             android:backgroundTint="@color/White"
-            android:fontFamily="sans-serif" />
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"/>
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Involved!"
-        android:textColor="@color/Garnet"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text="Login"
+        android:textColor="@color/White"
         android:onClick="Validate_Cred"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
-        android:background="@color/Gold"
+        android:background="#a00228"
         android:id="@+id/log_button"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/passwordWrapper"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register Today!"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text="Sign up"
         android:id="@+id/reg_button"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="23dp"
+        android:textColor="@color/White"
+        android:background="#6d011b"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
         android:layout_below="@+id/log_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lost Password?"
+        android:layout_height="40dp"
+        android:text="Forgot Password?"
         android:id="@+id/lost_pass"
-        android:layout_alignBottom="@+id/reg_button"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/log_button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/reg_button"
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="@color/Gold"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

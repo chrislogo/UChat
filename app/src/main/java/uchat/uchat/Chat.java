@@ -42,7 +42,7 @@ public class Chat extends WebViewFragment {
         WV.getSettings().setDomStorageEnabled(true);
         WV.getSettings().setJavaScriptEnabled(true);
 
-        String html = "http://73.42.47.33/chat-script.php?username=" + pref_response;
+        String html = "http://73.42.47.33/chat-script.php?username=" + pref_response +"&room=FSUgeneral";
 
         WV.loadUrl(html);
 
