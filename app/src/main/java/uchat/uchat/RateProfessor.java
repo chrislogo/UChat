@@ -1,8 +1,10 @@
 package uchat.uchat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,10 +14,25 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class RateProfessor extends AppCompatActivity {
 
     //rating data: Two Strings and a float.
-    String selected_course, selected_prof, comment;
+    String selected_course, selected_prof, comment,username, id;
+    String url = "http://73.42.47.33/rmp_insert.php";
     float rating;
 
     Spinner courseSpinner;
@@ -24,6 +41,7 @@ public class RateProfessor extends AppCompatActivity {
     Button submit_button;
     Button view_ratings;
     EditText comText;
+    StringRequest stringRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +55,9 @@ public class RateProfessor extends AppCompatActivity {
         rbar = (RatingBar) findViewById(R.id.ratingBar);
         comText = (EditText) findViewById(R.id.commentText);
 
+        SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
+        username = shared_pref.getString("username", "");
+        id = shared_pref.getString("id","");
         //spinner init
         ArrayAdapter<CharSequence> spindapter = ArrayAdapter.createFromResource(this, R.array.courses, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> spindapter2 = ArrayAdapter.createFromResource(this, R.array.professors, android.R.layout.simple_spinner_item);
@@ -86,8 +107,42 @@ public class RateProfessor extends AppCompatActivity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                comment = comText.getText().toString();
-                Toast.makeText(getApplicationContext(), "Rating successfully stored.", Toast.LENGTH_SHORT).show();
+                stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jo = new JSONObject(response);
+
+                            if (jo.getString("result").equals("success"))
+                                Toast.makeText(getApplicationContext(), "Rating successfully stored.", Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Error", error.getMessage());
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        HashMap<String, String> hashMap = new HashMap<>();
+                        hashMap.put("professor", profSpinner.getSelectedItem().toString());
+                        String id_str = "" + id;
+                        hashMap.put("stu_id", id);
+                        hashMap.put("course", courseSpinner.getSelectedItem().toString());
+                        String rating_str = "" + rating;
+                        hashMap.put("rating", rating_str);
+                        hashMap.put("review", comText.getText().toString() );
+                        return hashMap;
+                    }
+                };
+                RequestQueue requestQueue = Volley.newRequestQueue(RateProfessor.this);
+                requestQueue.add(stringRequest);
             }
         });
 
