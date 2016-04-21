@@ -29,6 +29,7 @@ public class CardRecycler extends AppCompatActivity {
     private List<ChatRoomCard> persons;
     private RecyclerView rv;
     FloatingActionButton fab;
+    RVAdapter rvAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,17 @@ public class CardRecycler extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
+        fab.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
+
         initializeData();
         initializeAdapter();
+
+        rvAdapter.setOnItemClickListener(new RVAdapter.OnItemClickListener() {
+            public void onItemClick(View v, int position) {
+                startActivity(new Intent(CardRecycler.this, ChatActivity.class));
+
+            }
+        });
     }
 
     private void initializeData(){
@@ -59,7 +69,7 @@ public class CardRecycler extends AppCompatActivity {
     }
 
     private void initializeAdapter(){
-        RVAdapter adapter = new RVAdapter(persons);
-        rv.setAdapter(adapter);
+        rvAdapter = new RVAdapter(persons);
+        rv.setAdapter(rvAdapter);
     }
 }

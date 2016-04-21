@@ -17,6 +17,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     List<ChatRoomCard> persons;
 
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+    private OnItemClickListener mItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mItemClickListener = listener;
+    }
+
+
     RVAdapter(List<ChatRoomCard> persons){
         this.persons = persons;
     }
@@ -34,20 +43,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
+    public void onBindViewHolder(PersonViewHolder personViewHolder, final int i) {
         personViewHolder.className.setText(persons.get(i).name);
         personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
 
-        personViewHolder.container.setOnClickListener(onClickListener(i));
-    }
-
-    private View.OnClickListener onClickListener(final int position) {
-        return new View.OnClickListener() {
+        personViewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(v.getContext(), ChatActivity.class));
+                if (mItemClickListener != null) {
+                    mItemClickListener.onItemClick(v, i);
+                }
             }
-        };
+        });
     }
 
     @Override

@@ -37,7 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
+        android:tint="@color/Gold"
         android:src="@drawable/add_icon"
+        android:scaleType="center"
         android:layout_margin="20dp"
         app:fabSize="normal" />
 </android.support.design.widget.CoordinatorLayout>
