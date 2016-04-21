@@ -67,13 +67,14 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             //check for success JSON object
-                            if(jsonObject.names().get(0).equals("success")){
+                            if(jsonObject.getString("result").equals("success")){
                             //    Toast.makeText(getApplicationContext(), "Success: " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
 
                                 //keeps username alive for other activities
                                 SharedPreferences pref = getApplicationContext().getSharedPreferences(pref_string, 0);
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putString("username", login_username.getText().toString());
+                                editor.putString("id", jsonObject.getString("id"));
                                 editor.apply();
 
                                 startActivity(new Intent(getBaseContext(), MainActivity.class));
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Error: "+jsonObject.getString("empty"), Toast.LENGTH_LONG).show();
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), "Error: " + jsonObject.get("error"), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Error: Login credentials are incorrect", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
