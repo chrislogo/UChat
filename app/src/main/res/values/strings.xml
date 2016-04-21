@@ -48,6 +48,8 @@
     <string name="Logout">Logout</string>
     <string name="Send">Send</string>
     <string name="RateAProf">Rate A Professor</string>
+    <string name="Submit">Submit</string>
+    <string name="ViewRatings">View Ratings</string>
 
 
     <array name="sec_quest">
@@ -74,7 +76,7 @@
         <item>Zhi Wang</item>
         <item>Xiuwen Liu</item>
         <item>Leon Brown</item>
-        <item>Robert "Hamlet IRL" Myers</item>
+        <item>Robert Myers</item>
         <item>Melina Myers</item>
         <item>Justin Cole</item>
     </string-array>
