@@ -45,6 +45,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, final int i) {
         personViewHolder.className.setText(persons.get(i).name);
+        personViewHolder.profName.setText(persons.get(i).prof_name);
         personViewHolder.personPhoto.setImageResource(persons.get(i).photoId);
 
         personViewHolder.container.setOnClickListener(new View.OnClickListener() {
@@ -66,13 +67,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
         CardView cv;
         TextView className;
+        TextView profName;
         ImageView personPhoto;
         View container;
 
         PersonViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
-            className = (TextView)itemView.findViewById(R.id.person_name);
+            className = (TextView)itemView.findViewById(R.id.class_name);
+            profName = (TextView)itemView.findViewById(R.id.prof_name);
             personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
             container = itemView.findViewById(R.id.cv);
         }

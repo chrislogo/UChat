@@ -1,30 +1,19 @@
 package uchat.uchat;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardRecycler extends AppCompatActivity implements cardInterface{
+public class CardRecycler extends AppCompatActivity{
 
     private List<ChatRoomCard> persons;
     private RecyclerView rv;
@@ -72,16 +61,15 @@ public class CardRecycler extends AppCompatActivity implements cardInterface{
 
     private void initializeData(){
         persons = new ArrayList<>();
-        persons.add(new ChatRoomCard("COP4656", R.drawable.profile_icon));
+        persons.add(new ChatRoomCard("COP4656", "Leon Brown",R.drawable.profile_icon));
+        persons.add(new ChatRoomCard("COP4610", "Zhi Wang" ,R.drawable.profile_icon));
+        persons.add(new ChatRoomCard("COP4530", "Zhenhai Duan",R.drawable.profile_icon));
+        persons.add(new ChatRoomCard("COP3330", "Bob Myers",R.drawable.profile_icon));
+        persons.add(new ChatRoomCard("COP3014", "Melina Vastola",R.drawable.profile_icon));
     }
 
     private void initializeAdapter(){
         rvAdapter = new RVAdapter(persons);
         rv.setAdapter(rvAdapter);
-    }
-
-    @Override
-    public void addCard(String name, int id) {
-        persons.add(new ChatRoomCard(name, id));
     }
 }
