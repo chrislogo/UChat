@@ -24,7 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardRecycler extends AppCompatActivity {
+public class CardRecycler extends AppCompatActivity implements cardInterface{
 
     private List<ChatRoomCard> persons;
     private RecyclerView rv;
@@ -65,8 +65,6 @@ public class CardRecycler extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                persons.add(new ChatRoomCard("COP4610", R.drawable.profile_icon));
-                rvAdapter.notifyDataSetChanged();
                 startActivity(new Intent(CardRecycler.this, MajorChoice.class));
             }
         });
@@ -80,5 +78,10 @@ public class CardRecycler extends AppCompatActivity {
     private void initializeAdapter(){
         rvAdapter = new RVAdapter(persons);
         rv.setAdapter(rvAdapter);
+    }
+
+    @Override
+    public void addCard(String name, int id) {
+        persons.add(new ChatRoomCard(name, id));
     }
 }

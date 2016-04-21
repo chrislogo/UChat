@@ -9,6 +9,8 @@ import android.widget.ListView;
 
 public class ClassChoice extends AppCompatActivity {
 
+    cardInterface cards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,8 @@ public class ClassChoice extends AppCompatActivity {
         course.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                startActivity(new Intent(getBaseContext(), ChatActivity.class));
-
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                cards.addCard("COP4610", R.drawable.profile_icon);
             }
         });
     }
