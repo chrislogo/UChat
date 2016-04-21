@@ -8,6 +8,12 @@
         <item>Senior</item>
     </array>
 
+    <array name="calendar_view">
+        <item>Mobile Group Project due</item>
+        <item>Grocery Shopping</item>
+        <item>Finish Python Assignment</item>
+    </array>
+
     <array name="offered_majors">
         <item>Choose One</item>
         <item>Accounting</item>

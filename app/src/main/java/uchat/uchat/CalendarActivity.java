@@ -49,6 +49,20 @@ public class CalendarActivity extends AppCompatActivity {
 
         initializeCalendar();
 
+        view_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalendarActivity.this, ViewCalendar.class));
+            }
+        });
+
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalendarActivity.this, AddCalendarItem.class));
+            }
+        });
+
     }
 
     public void initializeCalendar() {
