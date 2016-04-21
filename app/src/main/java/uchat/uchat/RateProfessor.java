@@ -1,17 +1,14 @@
 package uchat.uchat;
 
 import android.content.Intent;
-<<<<<<< HEAD
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-=======
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
->>>>>>> origin/master
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
