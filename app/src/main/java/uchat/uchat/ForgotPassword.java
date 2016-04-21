@@ -67,10 +67,6 @@ public class ForgotPassword extends AppCompatActivity {
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));
         create_user_collapse.setCollapsedTitleTextColor(getResources().getColor(R.color.White));
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
         retrieve_cancel.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
         retrieve_submit.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
 
@@ -125,11 +121,6 @@ public class ForgotPassword extends AppCompatActivity {
 
 
                 }
-<<<<<<< HEAD
-
-=======
-                startActivity(new Intent(getApplicationContext(), QuestionActivity.class));
->>>>>>> origin/master
 
             }
         });

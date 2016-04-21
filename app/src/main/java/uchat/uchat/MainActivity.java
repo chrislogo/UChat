@@ -42,7 +42,7 @@ public class MainActivity extends TabActivity {
                 getResources().getDrawable(R.drawable.profile_icon)).setContent(intent);
         tabHost.addTab(spec);
 
-        tabHost.setCurrentTab(0);
+        tabHost.setCurrentTab(1);
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
