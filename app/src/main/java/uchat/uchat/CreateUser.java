@@ -46,7 +46,7 @@ public class CreateUser extends AppCompatActivity {
     CollapsingToolbarLayout create_user_collapse;
     Toolbar create_user_toolbar;
 
-    TextInputEditText first_name, last_name, user_email, answer, register_username, register_password;
+    TextInputEditText first_name, last_name, user_email, answer, register_username, register_password,about_me;
     AppCompatSpinner question, grad_year, user_major;
     FloatingActionButton register_submit, cancel_button;
     RequestQueue requestQueue;
@@ -69,6 +69,7 @@ public class CreateUser extends AppCompatActivity {
         register_username = (TextInputEditText) findViewById(R.id.register_username);
         register_password = (TextInputEditText) findViewById(R.id.register_password);
         answer = (TextInputEditText) findViewById(R.id.answer);
+        about_me = (TextInputEditText) findViewById(R.id.about_me);
 
         question = (AppCompatSpinner) findViewById(R.id.question);
         grad_year = (AppCompatSpinner) findViewById(R.id.year);
@@ -189,6 +190,12 @@ public class CreateUser extends AppCompatActivity {
                         hashMap.put("email", user_email.getText().toString());
                         hashMap.put("question", question.getSelectedItem().toString());
                         hashMap.put("answer", answer.getText().toString());
+                        String full_name = first_name.getText().toString();
+                        full_name+= " " + last_name.getText().toString();
+                        hashMap.put("name", full_name);
+                        hashMap.put("year",grad_year.getSelectedItem().toString());
+                        hashMap.put("major", selected_major);
+                        hashMap.put("mood", about_me.getText().toString());
 
                         return hashMap;
                     }

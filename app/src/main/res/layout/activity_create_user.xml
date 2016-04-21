@@ -349,7 +349,7 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/about_me"
-                    android:hint="Describes yourself in one word!"
+                    android:hint="Describe yourself in one word!"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
                     android:backgroundTint="@color/Garnet"
