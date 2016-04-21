@@ -1,5 +1,6 @@
 package uchat.uchat;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,13 +11,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Profile extends AppCompatActivity {
 
@@ -46,12 +53,14 @@ public class Profile extends AppCompatActivity {
         profile_year = (TextView) findViewById(R.id.profile_year);
         profile_major = (TextView) findViewById(R.id.profile_major);
         profile_word_description = (TextView) findViewById(R.id.profile_word_description);
+
         stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Log.i("IN STRING REQUEST", ":::::::");
                 try {
                     JSONObject jo = new JSONObject(response);
+                    Log.i ("USERNAME::::", jo.getString("username"));
                     profile_username.setText(jo.getString("username"));
                     profile_name.setText(jo.getString("name"));
                     profile_email.setText(jo.getString("email"));
@@ -69,9 +78,20 @@ public class Profile extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.i("Error", error.getMessage());
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError{
+                SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
+                String username = shared_pref.getString("username", "");
 
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("username", username);
+                return hashMap;
+            }
+        };
 
+        RequestQueue requestQueue = Volley.newRequestQueue(Profile.this);
+        requestQueue.add(stringRequest);
     }
 }
 
