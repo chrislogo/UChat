@@ -1,10 +1,17 @@
 package uchat.uchat;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+=======
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+>>>>>>> origin/master
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,6 +55,13 @@ public class RateProfessor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_professor);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.rate_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Rate My Professor");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.White));
+
         submit_button = (Button) findViewById(R.id.rapsubmit);
         view_ratings = (Button) findViewById(R.id.view_rate_btn);
         courseSpinner = (Spinner) findViewById(R.id.class_spin);
@@ -73,12 +87,10 @@ public class RateProfessor extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selected_course = courseSpinner.getItemAtPosition(position).toString();
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 

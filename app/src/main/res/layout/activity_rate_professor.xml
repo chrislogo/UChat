@@ -1,101 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal">
+    android:background="@color/White"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Select Class to Rate"
-        android:textSize="28dp"
-        android:id="@+id/textView"
-        android:paddingTop="20dp"
-        android:paddingBottom="25dp"
-        android:layout_above="@+id/class_spin"
-        android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/class_spin"
-        android:layout_above="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Professor Who Taught It"
-        android:textSize="28dp"
-        android:id="@+id/textView2"
-        android:paddingTop="20dp"
-        android:paddingBottom="25dp"
-        android:layout_above="@+id/prof_spin"
-        android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/prof_spin"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:progressTint="@color/Garnet"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/prof_spin"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
-
-    <EditText
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/commentText"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/rate_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:autoText="true"
-        android:editable="true"
-        android:enabled="true"
-        android:hint="Comment here:"
-        android:layout_below="@+id/ratingBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="60dp">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ViewRatings"
-        android:id="@+id/view_rate_btn"
-        android:background="@color/Garnet"
-        android:textColor="@color/White"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/ratingBar"
-        android:layout_alignEnd="@+id/ratingBar" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Select Class to Rate"
+            android:textSize="28dp"
+            android:id="@+id/textView"
+            android:paddingTop="20dp"
+            android:paddingBottom="25dp"
+            android:layout_above="@+id/class_spin"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Submit"
-        android:id="@+id/rapsubmit"
-        android:background="@color/Garnet"
-        android:textColor="@color/White"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/class_spin"
+            android:layout_above="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Professor Who Taught It"
+            android:textSize="28dp"
+            android:id="@+id/textView2"
+            android:paddingTop="20dp"
+            android:paddingBottom="25dp"
+            android:layout_above="@+id/prof_spin"
+            android:layout_centerHorizontal="true" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/prof_spin"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:progressTint="@color/Garnet"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/prof_spin"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/commentText"
+            android:layout_gravity="center_horizontal"
+            android:autoText="true"
+            android:editable="true"
+            android:enabled="true"
+            android:hint="Comment here:"
+            android:layout_below="@+id/ratingBar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ViewRatings"
+            android:id="@+id/view_rate_btn"
+            android:background="@color/Garnet"
+            android:textColor="@color/White"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/ratingBar"
+            android:layout_alignEnd="@+id/ratingBar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Submit"
+            android:id="@+id/rapsubmit"
+            android:background="@color/Garnet"
+            android:textColor="@color/White"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

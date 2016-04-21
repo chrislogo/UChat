@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -34,6 +35,13 @@ public class CardRecycler extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_recycler);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.card_toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Select Chat");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.White));
+
         rv=(RecyclerView)findViewById(R.id.rv);
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -48,7 +56,6 @@ public class CardRecycler extends AppCompatActivity {
     private void initializeData(){
         persons = new ArrayList<>();
         persons.add(new ChatRoomCard("COP4656", R.drawable.profile_icon));
-
     }
 
     private void initializeAdapter(){
