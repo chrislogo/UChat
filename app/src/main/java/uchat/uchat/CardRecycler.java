@@ -51,7 +51,7 @@ public class CardRecycler extends AppCompatActivity{
         actionBar.setTitle("Select Chat");
         toolbar.setTitleTextColor(getResources().getColor(R.color.White));
 
-        rv=(RecyclerView)findViewById(R.id.rv);
+        rv = (RecyclerView)findViewById(R.id.rv);
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         rv.setHasFixedSize(true);
@@ -61,6 +61,8 @@ public class CardRecycler extends AppCompatActivity{
         fab.setBackgroundTintList(getResources().getColorStateList(R.color.Garnet));
 
         persons = new ArrayList<>();
+        rvAdapter = new RVAdapter(persons);
+        rv.setAdapter(rvAdapter);
 
         request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
@@ -123,15 +125,6 @@ public class CardRecycler extends AppCompatActivity{
         requestQueue.add(request);
 
 
-
-
-
-
-        //initializeData();
-        //initializeAdapter();
-
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,9 +133,4 @@ public class CardRecycler extends AppCompatActivity{
             }
         });
     }
-
-
-    /*private void initializeAdapter(){
-
-    }*/
 }
