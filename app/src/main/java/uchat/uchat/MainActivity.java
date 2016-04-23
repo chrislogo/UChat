@@ -2,6 +2,7 @@ package uchat.uchat;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
@@ -37,20 +38,20 @@ public class MainActivity extends TabActivity {
                 getResources().getDrawable(R.drawable.rate_icon)).setContent(intent);
         tabHost.addTab(spec);
 
+        SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
+        String username = shared_pref.getString("username", "");
+
+        Bundle bundle = new Bundle();
+        bundle.putString("username",username);
         intent = new Intent(MainActivity.this, Profile.class);
+        intent.putExtras(bundle);
         spec = tabHost.newTabSpec( "user_profile" ).setIndicator( null,
                 getResources().getDrawable(R.drawable.profile_icon)).setContent(intent);
         tabHost.addTab(spec);
 
         tabHost.setCurrentTab(0);
 
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                Toast.makeText(getApplicationContext(), "Tab ID = " + tabId,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
 
     }

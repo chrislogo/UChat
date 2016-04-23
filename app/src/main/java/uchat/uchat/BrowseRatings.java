@@ -45,8 +45,6 @@ public class BrowseRatings extends AppCompatActivity {
             name = extras.getString("name");
         }
 
-        Log.i("NAME:::::", name);
-
         request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){

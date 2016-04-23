@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.text.SpannableString;
@@ -21,9 +19,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -59,6 +57,7 @@ public class ChatActivity extends AppCompatActivity
         SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
 
         String pref_response = shared_pref.getString("username", "");
+        String course = shared_pref.getString("course","");
 
         mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
 
@@ -126,23 +125,12 @@ public class ChatActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //*****************We should use an intent here, no need to keep variable alive***********
 
-                // grab preferences
-                // SharedPreferences settings = getSharedPreferences(, 0);
-
-                // cursor.moveToPosition(position);
-                // String a = cursor.getString(cursor.getColumnIndexOrThrow("Name"));
-
-
-                //boolean from_add = settings.getBoolean("", false);
-
-                // SharedPreferences.Editor editor = settings.edit();
-
-                // editor.putString("", a);
-                //editor.apply();
-
-                // Some sort of shared prefs to load another chat here
+                TextView tv = (TextView) view.findViewById(R.id.single_user);
+                Bundle bundle = new Bundle();
+                bundle.putString("username", tv.getText().toString());
 
                 Intent intent = new Intent(getApplicationContext(), Profile.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
 
             }
@@ -175,7 +163,9 @@ public class ChatActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            startActivity(new Intent(ChatActivity.this, MainActivity.class));
+            finish();
+            //super.onBackPressed();
         }
     }
 
@@ -232,7 +222,7 @@ public class ChatActivity extends AppCompatActivity
         }
 
         //return true;
-
+        finish();
         return super.onOptionsItemSelected(item);
     }
 

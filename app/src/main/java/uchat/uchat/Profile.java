@@ -81,8 +81,8 @@ public class Profile extends AppCompatActivity {
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError{
-                SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
-                String username = shared_pref.getString("username", "");
+                Bundle extras = getIntent().getExtras();
+                String username = extras.getString("username");
 
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("username", username);

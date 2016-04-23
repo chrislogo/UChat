@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="uchat.uchat.Chat">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <WebView
         android:layout_width="match_parent"
