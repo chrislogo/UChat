@@ -17,8 +17,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     List<ChatRoomCard> persons;
 
-    RVAdapter(){}
-
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
     }

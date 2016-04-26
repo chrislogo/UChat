@@ -54,11 +54,6 @@ public class ChatActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Chat Rooms");
 
-        SharedPreferences shared_pref = getApplicationContext().getSharedPreferences(LoginActivity.pref_string, 0);
-
-        String pref_response = shared_pref.getString("username", "");
-        String course = shared_pref.getString("course","");
-
         mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
 
 
@@ -114,16 +109,8 @@ public class ChatActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-       // mDrawerList = (ListView) findViewById(R.id.nav_chatlist);
-
-        // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mNavigationDrawerItemTitles);
-
-        //mDrawerList.setAdapter((new OnlineUsersAdapter(this, mNavigationDrawerItemTitles)));
-
-
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //*****************We should use an intent here, no need to keep variable alive***********
 
                 TextView tv = (TextView) view.findViewById(R.id.single_user);
                 Bundle bundle = new Bundle();
@@ -179,23 +166,8 @@ public class ChatActivity extends AppCompatActivity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-        MenuItem settingsMenuItem = menu.findItem(R.id.search);
+        MenuItem settingsMenuItem = menu.findItem(R.id.logout);
         SpannableString s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.profile);
-        s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.rateaprof);
-        s = new SpannableString(settingsMenuItem.getTitle());
-        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
-        settingsMenuItem.setTitle(s);
-
-        settingsMenuItem = menu.findItem(R.id.logout);
-        s = new SpannableString(settingsMenuItem.getTitle());
         s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
         settingsMenuItem.setTitle(s);
 
@@ -204,24 +176,12 @@ public class ChatActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.search)
-        {
-            startActivity(new Intent(getBaseContext(), MajorChoice.class));
-        }
-        else if(item.getItemId() == R.id.profile)
-        {
-            startActivity(new Intent(getBaseContext(), Profile.class));
-        }
-        else if(item.getItemId() == R.id.rateaprof)
-        {
-            startActivity(new Intent(getBaseContext(), RateProfessor.class));
-        }
-        else if(item.getItemId() == R.id.logout)
+
+        if(item.getItemId() == R.id.logout)
         {
             startActivity(new Intent(getBaseContext(), LogoutActivity.class));
         }
 
-        //return true;
         finish();
         return super.onOptionsItemSelected(item);
     }
@@ -231,8 +191,6 @@ public class ChatActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 

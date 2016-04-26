@@ -101,4 +101,34 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem settingsMenuItem = menu.findItem(R.id.logout);
+        SpannableString s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(ContextCompat.getColor(getApplicationContext(), R.color.optionMenuTextColor)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.logout)
+        {
+            startActivity(new Intent(getBaseContext(), LogoutActivity.class));
+        }
+
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
+
 }
