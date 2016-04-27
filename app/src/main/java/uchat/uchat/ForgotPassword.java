@@ -61,7 +61,6 @@ public class ForgotPassword extends AppCompatActivity {
 
         setSupportActionBar(create_user_toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         create_user_collapse.setTitle("Retrieve Password");
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));

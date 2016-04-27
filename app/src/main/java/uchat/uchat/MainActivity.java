@@ -51,9 +51,5 @@ public class MainActivity extends TabActivity {
 
         tabHost.setCurrentTab(0);
 
-
-
-
     }
-
 }

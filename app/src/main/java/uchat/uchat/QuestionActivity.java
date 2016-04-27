@@ -52,7 +52,6 @@ public class QuestionActivity extends AppCompatActivity {
         question_title.setText(question);
         setSupportActionBar(create_user_toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         create_user_collapse.setTitle("Security Question");
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));

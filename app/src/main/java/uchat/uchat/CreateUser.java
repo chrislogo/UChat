@@ -84,7 +84,6 @@ public class CreateUser extends AppCompatActivity {
 
         setSupportActionBar(create_user_toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         create_user_collapse.setTitle("Create Account");
         create_user_collapse.setExpandedTitleColor(getResources().getColor(R.color.White));
