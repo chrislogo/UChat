@@ -100,7 +100,7 @@ public class CalendarActivity extends AppCompatActivity {
                 }else{
                     date_event_format.add(date_selected.getMonth() + "/" + date_selected.getDay() + "/" + date_selected.getYear()+ ": "
                             + user_event.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Event Added: " + date_event_format.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Event Added", Toast.LENGTH_SHORT).show();
                     user_event.getText().clear();
                 }
             }
