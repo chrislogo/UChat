@@ -45,7 +45,6 @@
         <activity android:name=".CardRecycler"
             android:launchMode="singleTask"/>
         <activity android:name=".ViewCalendar" />
-        <activity android:name=".AddCalendarItem"/>
     </application>
 
 </manifest>

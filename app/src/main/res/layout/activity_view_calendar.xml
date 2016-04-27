@@ -27,7 +27,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:entries="@array/calendar_view">
+            android:id="@+id/calendar_event_list">
 
         </ListView>
 

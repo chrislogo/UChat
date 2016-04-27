@@ -45,7 +45,6 @@ public class Chat extends WebViewFragment {
 
         WV.loadUrl(html);
 
-
         // so the app doesn't open a browser
         WV.setWebViewClient(new WebViewClient() {
             @Override

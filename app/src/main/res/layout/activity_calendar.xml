@@ -18,55 +18,73 @@
             app:layout_collapseMode="pin"/>
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:orientation="horizontal"
-            android:layout_margin="15dp">
-            <CalendarView
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/user_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_calendar"
-                android:layoutDirection="inherit"
-                />
-        </LinearLayout>
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:mcv_showOtherDates="all"
+                android:layout_margin="15dp"
+                app:mcv_selectionColor="@color/Gold" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/view_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:tint="@color/Gold"
-            android:layout_margin="15dp"
-            android:src="@drawable/view_icon"
-            android:scaleType="center"
-            app:fabSize="normal" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_add_item"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:textColorHint="@color/Gold"
+                android:layout_below="@id/user_calendar">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="140"
+                    android:ems="10"
+                    android:id="@+id/add_item"
+                    android:hint="Event to add"
+                    android:textColorHint="@color/Gold"
+                    android:textColor="@color/Black"
+                    android:backgroundTint="@color/Garnet"
+                    android:inputType="textCapWords|textPersonName" />
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:tint="@color/Gold"
-            android:layout_margin="15dp"
-            android:src="@drawable/add_icon"
-            android:scaleType="center"
-            app:fabSize="normal" />
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/view_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:tint="@color/Gold"
+                android:layout_margin="15dp"
+                android:src="@drawable/view_icon"
+                android:layout_below="@id/input_add_item"
+                android:scaleType="center"
+                app:fabSize="normal" />
 
-    </RelativeLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/add_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/input_add_item"
+                android:tint="@color/Gold"
+                android:layout_margin="15dp"
+                android:src="@drawable/add_icon"
+                android:scaleType="center"
+                app:fabSize="normal" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
