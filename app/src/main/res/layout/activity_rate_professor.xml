@@ -36,8 +36,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Select Course:"
-                android:textSize="28dp"
+                android:text="@string/SelCourse"
+                android:textSize="28sp"
                 android:id="@+id/course_text"
                 android:textColor="@color/Gold"
                 android:layout_margin="15dp"
@@ -58,8 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Select Professor:"
-                android:textSize="28dp"
+                android:text="@string/SelProf"
+                android:textSize="28sp"
                 android:textColor="@color/Gold"
                 android:id="@+id/professor_text"
                 android:layout_margin="15dp"
@@ -81,7 +81,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingBar"
                 android:layout_margin="15dp"
-                android:progressTint="@color/Garnet"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/prof_spin" />
 
@@ -105,10 +104,9 @@
                     android:ems="10"
                     android:id="@+id/commentText"
                     android:enabled="true"
-                    android:hint="Comment here:"
+                    android:hint="@string/CommentHere"
                     android:textColorHint="@color/Gold"
-                    android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet" />
+                    android:textColor="@color/Black" />
             </android.support.design.widget.TextInputLayout>
 
             <Button

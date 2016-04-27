@@ -29,6 +29,7 @@
                 android:id="@+id/create_user_toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
+                android:onClick="GoBack"
                 app:theme="@style/ToolbarColoredBackArrow"
                 app:layout_collapseMode="pin"/>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -64,10 +65,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/first_name"
-                    android:hint="First Name"
+                    android:hint="@string/FName"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords|textPersonName" />
             </android.support.design.widget.TextInputLayout>
 
@@ -89,10 +89,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/last_name"
-                    android:hint="Last Name"
+                    android:hint="@string/LName"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords|textPersonName" />
             </android.support.design.widget.TextInputLayout>
 
@@ -115,10 +114,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/user_email"
-                    android:hint="Email"
+                    android:hint="@string/Email"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords|textPersonName" />
             </android.support.design.widget.TextInputLayout>
 
@@ -141,10 +139,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/register_username"
-                    android:hint="Username"
+                    android:hint="@string/Username"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -167,10 +164,34 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/register_password"
-                    android:hint="Password"
+                    android:hint="@string/Password"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_conf_password"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
+                android:textColorHint="@color/Gold"
+                android:layout_below="@+id/input_register_password">
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="140"
+                    android:ems="10"
+                    android:id="@+id/conf_password"
+                    android:hint="@string/ConfPW"
+                    android:textColorHint="@color/Gold"
+                    android:textColor="@color/Black"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
@@ -179,7 +200,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_width="wrap_content"
-                android:text="Question: "
+                android:text="@string/Question"
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
@@ -188,7 +209,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_below="@+id/input_register_password">
+                android:layout_below="@+id/input_conf_password">
             </android.support.v7.widget.AppCompatTextView>
 
             <RelativeLayout
@@ -197,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_box"
                 android:orientation="horizontal"
-                android:layout_below="@+id/input_register_password"
+                android:layout_below="@+id/input_conf_password"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
@@ -210,7 +231,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:backgroundTint="@color/Gold"
                     android:popupBackground="@color/White"
                     android:theme="@style/Spinner_Style"
                     android:entries="@array/sec_quest">
@@ -237,10 +257,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/answer"
-                    android:hint="Answer"
+                    android:hint="@string/Answer"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords" />
             </android.support.design.widget.TextInputLayout>
 
@@ -249,7 +268,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_width="wrap_content"
-                android:text="Year"
+                android:text="@string/Year"
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
@@ -280,7 +299,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:backgroundTint="@color/Gold"
                     android:theme="@style/Spinner_Style"
                     android:entries="@array/grade_year">
                 </android.support.v7.widget.AppCompatSpinner>
@@ -292,7 +310,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_width="wrap_content"
-                android:text="Major"
+                android:text="@string/Major"
                 android:textSize="9pt"
                 android:textColor="@color/Gold"
                 android:layout_height="wrap_content"
@@ -323,7 +341,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:backgroundTint="@color/Gold"
                     android:theme="@style/Spinner_Style"
                     android:entries="@array/offered_majors">
                 </android.support.v7.widget.AppCompatSpinner>
@@ -349,10 +366,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/about_me"
-                    android:hint="Describe yourself in one word!"
+                    android:hint="@string/DescribeSElf"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords" />
             </android.support.design.widget.TextInputLayout>
 
@@ -364,7 +380,6 @@
                 android:id="@+id/cancel_button"
                 android:scaleType="center"
                 android:tint="@color/Gold"
-                android:elevation="6dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="80dp"
@@ -380,7 +395,6 @@
                 android:id="@+id/register_submit"
                 android:scaleType="center"
                 android:tint="@color/Gold"
-                android:elevation="6dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="80dp"

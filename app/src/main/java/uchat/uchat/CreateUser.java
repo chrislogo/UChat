@@ -46,7 +46,8 @@ public class CreateUser extends AppCompatActivity {
     CollapsingToolbarLayout create_user_collapse;
     Toolbar create_user_toolbar;
 
-    TextInputEditText first_name, last_name, user_email, answer, register_username, register_password,about_me;
+    TextInputEditText first_name, last_name, user_email, answer, register_username, register_password,
+                        conf_password, about_me;
     AppCompatSpinner question, grad_year, user_major;
     FloatingActionButton register_submit, cancel_button;
     RequestQueue requestQueue;
@@ -68,6 +69,7 @@ public class CreateUser extends AppCompatActivity {
         user_email = (TextInputEditText) findViewById(R.id.user_email);
         register_username = (TextInputEditText) findViewById(R.id.register_username);
         register_password = (TextInputEditText) findViewById(R.id.register_password);
+        conf_password = (TextInputEditText) findViewById(R.id.conf_password);
         answer = (TextInputEditText) findViewById(R.id.answer);
         about_me = (TextInputEditText) findViewById(R.id.about_me);
 
@@ -184,30 +186,94 @@ public class CreateUser extends AppCompatActivity {
                 }){
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError{
-                        HashMap<String,String> hashMap = new HashMap<String, String>();
-                        hashMap.put("username", register_username.getText().toString());
-                        hashMap.put("password", register_password.getText().toString());
-                        hashMap.put("email", user_email.getText().toString());
-                        hashMap.put("question", question.getSelectedItem().toString());
-                        hashMap.put("answer", answer.getText().toString());
-                        String full_name = first_name.getText().toString();
-                        full_name+= " " + last_name.getText().toString();
-                        hashMap.put("name", full_name);
-                        hashMap.put("year",grad_year.getSelectedItem().toString());
-                        hashMap.put("major", selected_major);
-                        hashMap.put("mood", about_me.getText().toString());
+                            HashMap<String, String> hashMap = new HashMap<String, String>();
+                            hashMap.put("username", register_username.getText().toString());
+                            hashMap.put("password", register_password.getText().toString());
+                            hashMap.put("email", user_email.getText().toString());
+                            hashMap.put("question", question.getSelectedItem().toString());
+                            hashMap.put("answer", answer.getText().toString());
+                            String full_name = first_name.getText().toString();
+                            full_name += " " + last_name.getText().toString();
+                            hashMap.put("name", full_name);
+                            hashMap.put("year", grad_year.getSelectedItem().toString());
+                            hashMap.put("major", selected_major);
+                            hashMap.put("mood", about_me.getText().toString());
 
-                        return hashMap;
+                            return hashMap;
                     }
                 };
 
-                requestQueue.add(request);
+
+                boolean all_good = false;
+                all_good = Confirm_Fields();
+                if(all_good) {
+                    requestQueue.add(request);
+                }
             }
         });
     }
 
+    public boolean Confirm_Fields()
+    {
+        if(register_username.getText().toString().equals(""))
+        {
+            register_username.setError("Username is empty!");
+            return false;
+        }
+
+        if(register_password.getText().toString().equals(""))
+        {
+            register_password.setError("Password is empty!");
+            return false;
+        }
+
+        if(!register_password.getText().toString().equals(conf_password.getText().toString()))
+        {
+            register_password.setError("Passwords do not match!");
+            return false;
+        }
+
+        if(user_email.getText().toString().equals(""))
+        {
+            user_email.setError("Email is empty!");
+            return false;
+        }
+
+        if(question.getSelectedItem().toString().equals("Choose One"))
+        {
+            Toast.makeText(CreateUser.this, "Error: No Security Question selected!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(answer.getText().toString().equals(""))
+        {
+           answer.setError("Security Answer is empty!");
+            return false;
+        }
+
+        if(first_name.getText().toString().equals("") || last_name.getText().toString().equals(""))
+        {
+            first_name.setError("Name is empty");
+            last_name.setError("Name is empty!");
+            return false;
+        }
+
+        if(grad_year.getSelectedItem().toString().equals("Choose One"))
+        {
+            Toast.makeText(CreateUser.this, "Error: Year not selected!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+    }
+
+    public void GoBack(View v)
+    {
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 

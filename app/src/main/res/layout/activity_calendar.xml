@@ -51,10 +51,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/add_item"
-                    android:hint="Event to add"
+                    android:hint="@string/AddEvent"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textCapWords|textPersonName" />
             </android.support.design.widget.TextInputLayout>
 

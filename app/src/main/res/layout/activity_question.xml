@@ -30,6 +30,7 @@
                 android:id="@+id/question_toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
+                android:onClick="GoBack"
                 app:theme="@style/ToolbarColoredBackArrow"
                 app:layout_collapseMode="pin"/>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -73,10 +74,9 @@
                     android:maxLength="140"
                     android:ems="10"
                     android:id="@+id/the_answer"
-                    android:hint="Answer"
+                    android:hint="@string/SecAnswer"
                     android:textColorHint="@color/Gold"
                     android:textColor="@color/Black"
-                    android:backgroundTint="@color/Garnet"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
@@ -86,7 +86,6 @@
                 android:layout_below="@id/input_question"
                 android:src="@drawable/cancel_icon"
                 android:id="@+id/question_cancel_button"
-                android:elevation="6dp"
                 android:scaleType="center"
                 android:tint="@color/Gold"
                 android:layout_marginBottom="20dp"
@@ -102,7 +101,6 @@
                 android:id="@+id/question_submit_button"
                 android:src="@drawable/submit_icon2"
                 android:layout_below="@id/input_question"
-                android:elevation="6dp"
                 android:scaleType="center"
                 android:tint="@color/Gold"
                 android:layout_marginBottom="20dp"

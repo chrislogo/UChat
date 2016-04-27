@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/MajorChoice"
+            android:paddingLeft="15dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:textSize="28sp"

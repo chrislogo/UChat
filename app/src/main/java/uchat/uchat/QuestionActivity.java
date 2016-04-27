@@ -89,4 +89,10 @@ public class QuestionActivity extends AppCompatActivity {
     public void onBackPressed() {
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
+
+    public void GoBack(View v)
+    {
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+    }
+
 }
