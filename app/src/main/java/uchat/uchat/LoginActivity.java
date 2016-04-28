@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                             else if(jsonObject.names().get(0).equals("empty")){
                                 Toast.makeText(getApplicationContext(), "Error: "+jsonObject.getString("empty"), Toast.LENGTH_LONG).show();
                             }
-                            else{
+                            else if (jsonObject.getString("result").equals("error")){
                                 Toast.makeText(getApplicationContext(), "Error: Login credentials are incorrect", Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
