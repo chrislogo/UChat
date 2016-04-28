@@ -90,8 +90,8 @@ public class ForgotPassword extends AppCompatActivity {
                                 String quest = jo.getString("question");
 
                                 if (quest.equals("error")) {
-                                    retrieve_email.setError("Email does not exist");
-                                    Log.i("EMAIL", jo.getString("question"));
+                                   Toast.makeText(ForgotPassword.this, "Email not in database", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(ForgotPassword.this, LoginActivity.class));
                                 } else {
 
                                     bundle.putString("question", jo.getString("question"));
