@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/create_user_coordinator"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White">
 
     <android.support.design.widget.AppBarLayout
         android:layout_height="130dp"
@@ -43,7 +44,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/White"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true">
 
