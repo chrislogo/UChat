@@ -128,9 +128,10 @@ public class RateProfessor extends AppCompatActivity {
 
                         try {
                             JSONObject jo = new JSONObject(response);
-
                             if (jo.getString("result").equals("success"))
                                 Toast.makeText(getApplicationContext(), "Rating successfully stored.", Toast.LENGTH_SHORT).show();
+                            else if (jo.getString("result").equals("exist_err"))
+                                Toast.makeText(RateProfessor.this, "You have already submitted a review for this professor", Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -140,7 +141,8 @@ public class RateProfessor extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.i("Error", error.getMessage());
+                        Toast.makeText(RateProfessor.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(RateProfessor.this, LoginActivity.class));
                     }
                 }) {
                     @Override

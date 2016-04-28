@@ -83,7 +83,8 @@ public class ChangePassword extends AppCompatActivity {
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Log.i("Error", error.getMessage());
+                                    Toast.makeText(ChangePassword.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(ChangePassword.this, LoginActivity.class));
                                 }
                             });
                     RequestQueue requestQueue = Volley.newRequestQueue(ChangePassword.this);

@@ -43,7 +43,7 @@ public class LogoutActivity extends AppCompatActivity {
                }, new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
-                        Toast.makeText(LogoutActivity.this, "Error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LogoutActivity.this, "Error removing from database", Toast.LENGTH_LONG).show();
                     }
                });
         requestQueue.add(request);

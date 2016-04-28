@@ -112,7 +112,8 @@ public class ForgotPassword extends AppCompatActivity {
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Log.i("Error", error.getMessage());
+                                    Toast.makeText(ForgotPassword.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(ForgotPassword.this, LoginActivity.class));
                                 }
                             });
                     RequestQueue requestQueue = Volley.newRequestQueue(ForgotPassword.this);

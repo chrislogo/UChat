@@ -87,7 +87,8 @@ public class ChatActivity extends AppCompatActivity
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
-                        Log.i("Error", error.getMessage());
+                        Toast.makeText(ChatActivity.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ChatActivity.this, LoginActivity.class));
                     }
         });
 
@@ -141,6 +142,8 @@ public class ChatActivity extends AppCompatActivity
 
         }catch(JSONException e){
             e.printStackTrace();
+            Toast.makeText(ChatActivity.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(ChatActivity.this, LoginActivity.class));
         }
     }
 

@@ -63,7 +63,8 @@ public class ViewProfessors extends AppCompatActivity {
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
-                Toast.makeText(ViewProfessors.this,"Error connecting to database",Toast.LENGTH_LONG).show();
+                Toast.makeText(ViewProfessors.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(ViewProfessors.this, LoginActivity.class));
             }
         });
 

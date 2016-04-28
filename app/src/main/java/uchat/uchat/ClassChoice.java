@@ -62,8 +62,8 @@ public class ClassChoice extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.i("Error", error.getMessage());
                         Toast.makeText(getApplicationContext(), "Error connecting to server.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ClassChoice.this, LoginActivity.class));
 
                     }
                 }) {

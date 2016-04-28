@@ -180,6 +180,8 @@ public class CreateUser extends AppCompatActivity {
                 }, new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
+                        Toast.makeText(CreateUser.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+
 
                     }
                 }){

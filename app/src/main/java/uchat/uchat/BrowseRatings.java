@@ -70,7 +70,8 @@ public class BrowseRatings extends AppCompatActivity {
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error){
-                Toast.makeText(BrowseRatings.this, "Error connecting to database", Toast.LENGTH_LONG).show();
+                Toast.makeText(BrowseRatings.this, "Error connecting to server", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(BrowseRatings.this, LoginActivity.class));
             }
         }){
             @Override
