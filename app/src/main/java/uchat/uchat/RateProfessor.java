@@ -132,6 +132,11 @@ public class RateProfessor extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Rating successfully stored.", Toast.LENGTH_SHORT).show();
                             else if (jo.getString("result").equals("exist_err"))
                                 Toast.makeText(RateProfessor.this, "You have already submitted a review for this professor", Toast.LENGTH_SHORT).show();
+
+                            courseSpinner.setSelection(0);
+                            profSpinner.setSelection(0);
+                            comText.setText("");
+                            rbar.setRating(0.0f);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -160,10 +165,11 @@ public class RateProfessor extends AppCompatActivity {
                 };
                 RequestQueue requestQueue = Volley.newRequestQueue(RateProfessor.this);
                 requestQueue.add(stringRequest);
+
             }
         });
 
-        //submit button
+        //view button
        view_ratings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
